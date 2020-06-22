@@ -1,0 +1,35 @@
+langcode: en
+status: true
+dependencies: {  }
+id: service_page
+migration_group: croydon_migration
+label: 'Service page - Pages'
+source:
+  plugin: d8_node
+  key: migration
+  bundle: service_info 
+  include_translations: false
+process:
+  nid: nid
+  vid: vid
+  uuid: uuid
+  uid: uid
+  status: status
+  created: created
+  changed: changed
+  comment: comment
+  title: title
+  body: body
+  field_all_topics: field_all_topics
+  field_download_links: field_download_links
+  field_hide_related_topics: field_hide_related_topics
+  field_page_components: field_page_components
+  localgov_services_parent: field_parent_content
+  field_private_topics: field_private_topics
+  field_override_related_links: field_override_related_links
+  field_common_tasks: field_common_tasks
+  localgov_topic_classified: field_topic_term
+destination:
+  plugin: 'entity:node'
+  default_bundle: localgov_services_page
+migration_dependencies: {  }

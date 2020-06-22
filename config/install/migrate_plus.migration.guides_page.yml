@@ -1,0 +1,29 @@
+langcode: en
+status: true
+dependencies: {  }
+id: guides_page
+migration_group: croydon_migration
+label: 'Guide page'
+source:
+  plugin: d8_node
+  key: migration
+  bundle: guide_page  
+  include_translations: false
+process:
+  nid: nid
+  vid: vid
+  uuid: uuid
+  uid: uid
+  status: status
+  created: created
+  changed: changed
+  comment: comment
+  title: title
+  body: body
+  localgov_guides_parent: field_guide_parent
+  localgov_guides_section_title: field_guide_section_title
+  localgov_topic_classified: field_topic_term
+destination:
+  plugin: 'entity:node'
+  default_bundle: localgov_guides_page
+migration_dependencies: {  }

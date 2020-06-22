@@ -1,0 +1,11 @@
+<?php
+
+use Drupal\migrate\Plugin\MigrateSourceInterface;
+use Drupal\migrate\Plugin\MigrationInterface;
+use Drupal\migrate\Row;
+
+function croydon_migration_migrate_prepare_row(Row $row, MigrateSourceInterface $source, MigrationInterface $migration) {
+  print $migration->id();
+
+  print_r($row->getSource());
+}

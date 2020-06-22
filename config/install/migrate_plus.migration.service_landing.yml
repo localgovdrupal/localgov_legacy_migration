@@ -1,0 +1,40 @@
+langcode: en
+status: true
+dependencies: {  }
+id: service_landing
+migration_group: croydon_migration
+label: 'Service Hub - Landing pages'
+source:
+  plugin: d8_node
+  key: migration
+  bundle: service_hub 
+  include_translations: false
+process:
+  nid: nid
+  vid: vid
+  uuid: uuid
+  uid: uid
+  status: status
+  created: created
+  changed: changed
+  comment: comment
+  title: title
+  body: body
+  field_address: field_address
+  field_destinations: field_destinations
+  field_contact_us_online: field_contact_us_online
+  field_email_address: field_email_address
+  field_facebook: field_facebook
+  field_address_first_line: field_address_first_line
+  field_hearing_difficulties_phone: field_hearing_difficulties_phone
+  field_link_to_map: field_link_to_map
+  field_opening_hours: field_opening_hours
+  field_other_team_contacts: field_other_team_contacts
+  field_phone: field_phone
+  field_popular_topics: field_popular_topics
+  field_common_tasks: field_common_tasks
+  field_twitter: field_twitter
+destination:
+  plugin: 'entity:node'
+  default_bundle: localgov_services_landing
+migration_dependencies: {  }

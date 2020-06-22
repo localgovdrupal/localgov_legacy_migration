@@ -1,0 +1,32 @@
+langcode: en
+status: true
+dependencies: {  }
+id: guides_overview
+migration_group: croydon_migration
+label: 'Guide Overview'
+source:
+  plugin: d8_node
+  key: migration
+  bundle: guide_overview
+  include_translations: false
+process:
+  nid: nid
+  vid: vid
+  uuid: uuid
+  uid: uid
+  status: status
+  created: created
+  changed: changed
+  comment: comment
+  title: title
+  body: body
+  localgov_guides_description: field_guide_description
+  localgov_guides_pages: field_guide_pages
+  localgov_guides_section_title: field_guide_section_title
+  localgov_guides_list_format: field_list_format
+  # service is on pages and should be moved to overview
+  # localgov_services_parent: field_service
+destination:
+  plugin: 'entity:node'
+  default_bundle: localgov_guides_overview
+migration_dependencies: {  }

@@ -1,0 +1,28 @@
+langcode: en
+status: true
+dependencies: {  }
+id: service_status
+migration_group: croydon_migration
+label: 'Service Update Page - Status'
+source:
+  plugin: d8_node
+  key: migration
+  bundle: service_update_page 
+  include_translations: false
+process:
+  nid: nid
+  vid: vid
+  uuid: uuid
+  uid: uid
+  status: status
+  created: created
+  changed: changed
+  comment: comment
+  title: title
+  body: body
+  field_service_status: field_service_status
+  localgov_services_parent: field_service
+destination:
+  plugin: 'entity:node'
+  default_bundle: localgov_services_status
+migration_dependencies: {  }

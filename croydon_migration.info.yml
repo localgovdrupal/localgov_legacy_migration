@@ -1,0 +1,7 @@
+name: 'Migration'
+type: module
+description: 'Migrations from D6 ons.wg'
+core: 8.x
+package: 'ons'
+dependencies:
+  - migrate_plus

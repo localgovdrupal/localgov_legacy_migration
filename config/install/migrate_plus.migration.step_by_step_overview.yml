@@ -1,0 +1,35 @@
+langcode: en
+status: true
+dependencies: {  }
+id: step_by_step_overview
+migration_group: croydon_migration
+label: 'Step by Step Homepage - Overview'
+source:
+  plugin: d8_node
+  key: migration
+  bundle: step_by_step_homepage
+  include_translations: false
+process:
+  nid: nid
+  vid: vid
+  uuid: uuid
+  uid: uid
+  status: status
+  created: created
+  changed: changed
+  comment: comment
+  title: title
+  body: body
+  localgov_step_description: field_guide_description
+  localgov_step_by_step_pages: field_guide_pages
+  localgov_topic_classified: field_topic_term
+  # Now only store the direct parent.
+  localgov_services_parent:
+    plugin: null_coalesce
+    source:
+      - field_sub_hub
+      - field_service
+destination:
+  plugin: 'entity:node'
+  default_bundle: localgov_step_by_step_overview
+migration_dependencies: {  }

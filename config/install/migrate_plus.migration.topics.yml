@@ -1,0 +1,20 @@
+langcode: en
+status: true
+dependencies: {  }
+id: topics
+migration_group: croydon_migration
+label: 'Topics'
+source:
+  plugin: d8_taxonomy_term
+  key: migration
+  entity_type: taxonomy_term
+  bundle: topic
+process:
+  tid: tid
+  revision_id: revision_id
+  uuid: uuid
+  name: name
+destination:
+  plugin: 'entity:taxonomy_term'
+  default_bundle: localgov_topic
+migration_dependencies: {  }
