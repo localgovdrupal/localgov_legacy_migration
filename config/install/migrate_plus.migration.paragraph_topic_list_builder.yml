@@ -1,0 +1,23 @@
+langcode: en
+status: true
+dependencies: {  }
+id: paragraph_topic_list_builder
+migration_group: croydon_migration
+label: 'Topics'
+source:
+  plugin: d8_entity
+  key: migration
+  entity_type: paragraph
+  bundle: topic_list_builder
+process:
+  entity_id: entity_id
+  revision_id: revision_id
+  delta: delta
+  langcode: langcode
+  topic_list_header: field_header_text
+  topic_list_links: field_links
+  topic_list_term: field_topic_term
+destination:
+  plugin: 'entity:paragraph'
+  default_bundle: topic_list_builder
+migration_dependencies: {  }
