@@ -1,0 +1,13 @@
+{
+    "name": "localgovdrupal/croydon_migration",
+    "description": "Working documentation for entity and field changes from Croydon site.",
+    "type": "drupal-module",
+    "homepage": "https://github.com/localgovdrupal/localgov_topics",
+    "license": "GPL-2.0-or-later",
+    "minimum-stability": "dev",
+    "require": {
+        "drupal/migrate_drupal_d8": "^1.0@beta",
+        "drupal/migrate_plus": "^5.1",
+        "drupal/migrate_tools": "^5.0"
+    }
+}
