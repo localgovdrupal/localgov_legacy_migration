@@ -1,7 +1,9 @@
 name: 'Migration'
 type: module
-description: 'Migrations from D6 ons.wg'
+description: 'Migrations from D8 Croydon'
 core: 8.x
-package: 'ons'
+package: 'LocalGovDrupal'
 dependencies:
-  - migrate_plus
+  - drupal:migrate_plus
+  - drupal:migrate_drupal_d8
+  - drupal:migrate_tools
