@@ -1,8 +1,8 @@
 {
-    "name": "localgovdrupal/croydon_migration",
-    "description": "Working documentation for entity and field changes from Croydon site.",
+    "name": "localgovdrupal/localgov_legacy_migration",
+    "description": "Migration for legacy Croydon and BHCC websites.",
     "type": "drupal-module",
-    "homepage": "https://github.com/localgovdrupal/localgov_topics",
+    "homepage": "https://github.com/localgovdrupal/localgov_legacy_migration",
     "license": "GPL-2.0-or-later",
     "minimum-stability": "dev",
     "require": {

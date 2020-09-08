@@ -1,0 +1,9 @@
+name: 'LocalGov Legacy Migration'
+description: 'Migrations from BHCC and Croydon Drupal 8 websites.'
+package: 'LocalGov Drupal'
+core_version_requirement: ^8 || ^9
+type: module
+dependencies:
+  - drupal:migrate_plus
+  - drupal:migrate_drupal_d8
+  - drupal:migrate_tools

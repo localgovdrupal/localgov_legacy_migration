@@ -1,9 +1,0 @@
-name: 'Migration'
-type: module
-description: 'Migrations from D8 Croydon'
-core: 8.x
-package: 'LocalGovDrupal'
-dependencies:
-  - drupal:migrate_plus
-  - drupal:migrate_drupal_d8
-  - drupal:migrate_tools
