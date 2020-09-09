@@ -7,7 +7,7 @@ label: 'Service Hub - Landing pages'
 source:
   plugin: d8_node
   key: migration
-  bundle: service_hub 
+  bundle: service_hub
   include_translations: false
 process:
   nid: nid
@@ -19,7 +19,17 @@ process:
   changed: changed
   comment: comment
   title: title
-  body: body
+  body:
+    -
+      plugin: sub_process
+      source: body
+      process:
+        value: value
+        format:
+          -
+            plugin: default_value
+            default_value: wysiwyg
+        summary: summary
   field_address: field_address
   field_destinations: field_destinations
   field_contact_us_online: field_contact_us_online

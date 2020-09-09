@@ -7,7 +7,7 @@ label: 'Service Update Page - Status'
 source:
   plugin: d8_node
   key: migration
-  bundle: service_update_page 
+  bundle: service_update_page
   include_translations: false
 process:
   nid: nid
@@ -19,7 +19,17 @@ process:
   changed: changed
   comment: comment
   title: title
-  body: body
+  body:
+    -
+      plugin: sub_process
+      source: body
+      process:
+        value: value
+        format:
+          -
+            plugin: default_value
+            default_value: wysiwyg
+        summary: summary
   field_service_status: field_service_status
   localgov_services_parent: field_service
 destination:

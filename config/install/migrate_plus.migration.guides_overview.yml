@@ -19,7 +19,17 @@ process:
   changed: changed
   comment: comment
   title: title
-  body: body
+  body:
+    -
+      plugin: sub_process
+      source: body
+      process:
+        value: value
+        format:
+          -
+            plugin: default_value
+            default_value: wysiwyg
+        summary: summary
   localgov_guides_description: field_guide_description
   localgov_guides_pages: field_guide_pages
   localgov_guides_section_title: field_guide_section_title

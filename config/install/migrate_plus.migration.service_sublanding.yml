@@ -7,7 +7,7 @@ label: 'Service Sub Hub - Subanding pages'
 source:
   plugin: d8_node
   key: migration
-  bundle: sub_hub 
+  bundle: sub_hub
   include_translations: false
 process:
   nid: nid
@@ -19,7 +19,17 @@ process:
   changed: changed
   comment: comment
   title: title
-  body: body
+  body:
+    -
+      plugin: sub_process
+      source: body
+      process:
+        value: value
+        format:
+          -
+            plugin: default_value
+            default_value: wysiwyg
+        summary: summary
   field_topics: field_topics
   localgov_services_parent: field_service
 destination:
