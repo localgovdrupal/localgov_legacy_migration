@@ -46,5 +46,6 @@ destination:
   default_bundle: localgov_step_by_step_overview
 migration_dependencies:
   optional:
+    - users
     - service_landing
     - service_sublanding

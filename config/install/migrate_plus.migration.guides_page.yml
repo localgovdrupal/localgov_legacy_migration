@@ -40,4 +40,5 @@ destination:
   default_bundle: localgov_guides_page
 migration_dependencies:
   optional:
+    - users
     - guides_overview

@@ -45,6 +45,7 @@ destination:
   default_bundle: localgov_services_page
 migration_dependencies:
   optional:
+    - users
     - service_landing
     - service_sublanding
     - topics
