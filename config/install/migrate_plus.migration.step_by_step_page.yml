@@ -1,13 +1,18 @@
 langcode: en
 status: true
-dependencies: {  }
+dependencies:
+  module:
+    - localgov_step_by_step
+  enforced:
+    module:
+      - localgov_legacy_migration
 id: step_by_step_page
-migration_group: croydon_migration
+migration_group: localgov_migration
 label: 'Step by Step page'
 source:
   plugin: d8_node
   key: migration
-  bundle: step_by_step_page  
+  bundle: step_by_step_page
   include_translations: false
 process:
   nid: nid
@@ -19,11 +24,25 @@ process:
   changed: changed
   comment: comment
   title: title
-  body: body
+  body:
+    -
+      plugin: sub_process
+      source: body
+      process:
+        value: value
+        format:
+          -
+            plugin: default_value
+            default_value: wysiwyg
+        summary: summary
   localgov_step_parent: field_guide_parent
   localgov_step_section_title: field_guide_section_title
   localgov_step_summary: field_step_summary
 destination:
   plugin: 'entity:node'
   default_bundle: localgov_step_by_step_page
-migration_dependencies: {  }
+migration_dependencies:
+  optional:
+    - service_landing
+    - service_sublanding
+    - step_by_step_page

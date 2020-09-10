@@ -3,9 +3,9 @@ status: true
 dependencies:
   enforced:
     module:
-      - croydon_migration
-id: croydon_migration
-label: 'Croydon Migration'
+      - localgov_legacy_migration
+id: localgov_migration
+label: 'LocalGov Migration'
 description: ''
 source_type: null
 module: null

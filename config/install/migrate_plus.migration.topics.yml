@@ -1,11 +1,16 @@
 langcode: en
 status: true
-dependencies: {  }
+dependencies:
+  module:
+    - localgov_topics
+  enforced:
+    module:
+      - localgov_legacy_migration
 id: topics
-migration_group: croydon_migration
+migration_group: localgov_migration
 label: 'Topics'
 source:
-  plugin: d8_taxonomy_term
+  plugin: d8_entity
   key: migration
   entity_type: taxonomy_term
   bundle: topic
