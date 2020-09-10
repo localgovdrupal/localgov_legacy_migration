@@ -15,7 +15,7 @@ source:
   entity_type: paragraph
   bundle: topic_list_builder
 process:
-  entity_id: entity_id
+  id: id
   revision_id: revision_id
   delta: delta
   langcode: langcode

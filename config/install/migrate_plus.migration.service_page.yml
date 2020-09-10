@@ -42,6 +42,7 @@ process:
   field_override_related_links: field_override_related_links
   field_common_tasks: field_common_tasks
   localgov_topic_classified: field_all_topics
+  field_related_links: field_related_links
 destination:
   plugin: 'entity:node'
   default_bundle: localgov_services_page
