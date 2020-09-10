@@ -3,15 +3,12 @@ status: true
 dependencies:
   module:
     - localgov_guides
-  enforced:
-    module:
-      - localgov_legacy_migration
 id: guides_overview
 migration_group: localgov_migration
-label: 'Guide Overview'
+label: 'Guides - overview'
 source:
-  plugin: d8_node
-  key: migration
+  plugin: d8_entity
+  entity_type: node
   bundle: guide_overview
   include_translations: false
 process:

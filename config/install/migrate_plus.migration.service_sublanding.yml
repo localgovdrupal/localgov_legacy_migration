@@ -3,15 +3,12 @@ status: true
 dependencies:
   module:
     - localgov_services_sublanding
-  enforced:
-    module:
-      - localgov_legacy_migration
 id: service_sublanding
 migration_group: localgov_migration
-label: 'Service Sub Hub - Subanding pages'
+label: 'Service - sub-landing page'
 source:
-  plugin: d8_node
-  key: migration
+  plugin: d8_entity
+  entity_type: node
   bundle: sub_hub
   include_translations: false
 process:

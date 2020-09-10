@@ -3,14 +3,12 @@ status: true
 dependencies:
   module:
     - localgov_services_status
-  enforced:
-      - localgov_legacy_migration
 id: service_status
 migration_group: localgov_migration
-label: 'Service Update Page - Status'
+label: 'Service - status page'
 source:
-  plugin: d8_node
-  key: migration
+  plugin: d8_entity
+  entity_type: node
   bundle: service_update_page
   include_translations: false
 process:

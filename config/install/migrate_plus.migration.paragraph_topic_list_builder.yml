@@ -3,17 +3,14 @@ status: true
 dependencies:
   module:
     - localgov_services_sublanding
-  enforced:
-    module:
-      - localgov_legacy_migration
 id: paragraph_topic_list_builder
 migration_group: localgov_migration
-label: 'Topics'
+label: 'Topic list builder'
 source:
   plugin: d8_entity
-  key: migration
   entity_type: paragraph
   bundle: topic_list_builder
+  key: migration
 process:
   id: id
   revision_id: revision_id

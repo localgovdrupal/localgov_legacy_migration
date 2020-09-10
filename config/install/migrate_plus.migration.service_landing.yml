@@ -3,15 +3,12 @@ status: true
 dependencies:
   module:
     - localgov_services_landing
-  enforced:
-    module:
-      - localgov_legacy_migration
 id: service_landing
 migration_group: localgov_migration
-label: 'Service Hub - Landing pages'
+label: 'Services - landing page'
 source:
-  plugin: d8_node
-  key: migration
+  plugin: d8_entity
+  entity_type: node
   bundle: service_hub
   include_translations: false
 process:

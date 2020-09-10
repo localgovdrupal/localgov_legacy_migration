@@ -3,15 +3,12 @@ status: true
 dependencies:
   module:
     - localgov_step_by_step
-  enforced:
-    module:
-      - localgov_legacy_migration
 id: step_by_step_page
 migration_group: localgov_migration
-label: 'Step by Step page'
+label: 'Step by step - page'
 source:
-  plugin: d8_node
-  key: migration
+  plugin: d8_entity
+  entity_type: node
   bundle: step_by_step_page
   include_translations: false
 process:

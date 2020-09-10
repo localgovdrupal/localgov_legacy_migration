@@ -3,15 +3,12 @@ status: true
 dependencies:
   module:
     - localgov_services_page
-  enforced:
-    module:
-      - localgov_legacy_migration
 id: service_page
 migration_group: localgov_migration
-label: 'Service page - Pages'
+label: 'Services - page'
 source:
-  plugin: d8_node
-  key: migration
+  plugin: d8_entity
+  entity_type: node
   bundle: service_info
   include_translations: false
 process:
