@@ -7,7 +7,7 @@ label: 'Service page - Pages'
 source:
   plugin: d8_node
   key: migration
-  bundle: service_info 
+  bundle: service_info
   include_translations: false
 process:
   nid: nid
@@ -19,7 +19,17 @@ process:
   changed: changed
   comment: comment
   title: title
-  body: body
+  body:
+    -
+      plugin: sub_process
+      source: body
+      process:
+        value: value
+        format:
+          -
+            plugin: default_value
+            default_value: wysiwyg
+        summary: summary
   field_download_links: field_download_links
   field_hide_related_topics: field_hide_related_topics
   field_page_components: field_page_components
@@ -27,6 +37,7 @@ process:
   field_override_related_links: field_override_related_links
   field_common_tasks: field_common_tasks
   localgov_topic_classified: field_all_topics
+  field_related_links: field_related_links
 destination:
   plugin: 'entity:node'
   default_bundle: localgov_services_page

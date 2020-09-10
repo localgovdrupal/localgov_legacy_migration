@@ -7,7 +7,7 @@ label: 'Guide page'
 source:
   plugin: d8_node
   key: migration
-  bundle: guide_page  
+  bundle: guide_page
   include_translations: false
 process:
   nid: nid
@@ -19,7 +19,17 @@ process:
   changed: changed
   comment: comment
   title: title
-  body: body
+  body:
+    -
+      plugin: sub_process
+      source: body
+      process:
+        value: value
+        format:
+          -
+            plugin: default_value
+            default_value: wysiwyg
+        summary: summary
   localgov_guides_parent: field_guide_parent
   localgov_guides_section_title: field_guide_section_title
   localgov_topic_classified: field_topic_term
