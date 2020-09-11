@@ -1,0 +1,43 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - localgov_media
+id: media_document
+migration_group: localgov_migration
+label: 'Media - documents'
+source:
+  plugin: d8_entity
+  entity_type: file
+process:
+  # Skip anything that's an image.
+  type:
+    plugin: skip_on_value
+    method: row
+    value:
+      - 'image/gif'
+      - 'image/jpeg'
+      - 'image/png'
+    source: filemime
+  # Skip if file hasn't been migrated.
+  id:
+    -
+      plugin: migration_lookup
+      migration: files
+      source: fid
+      no_stub: true
+    -
+      plugin: skip_on_empty
+      method: row
+  status: status
+  uid: uid
+  name: filename
+  created: created
+  changed: changed
+  field_media_document/0/target_id: '@id'
+destination:
+  plugin: 'entity:media'
+  default_bundle: document
+migration_dependencies:
+  required:
+    - files
