@@ -1,12 +1,14 @@
 langcode: en
 status: true
-dependencies: {  }
+dependencies:
+  module:
+    - localgov_services_landing
 id: service_landing
-migration_group: croydon_migration
-label: 'Service Hub - Landing pages'
+migration_group: localgov_migration
+label: 'Services - landing page'
 source:
-  plugin: d8_node
-  key: migration
+  plugin: d8_entity
+  entity_type: node
   bundle: service_hub
   include_translations: false
 process:
@@ -47,4 +49,6 @@ process:
 destination:
   plugin: 'entity:node'
   default_bundle: localgov_services_landing
-migration_dependencies: {  }
+migration_dependencies:
+  optional:
+    - users

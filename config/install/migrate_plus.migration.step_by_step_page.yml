@@ -1,12 +1,14 @@
 langcode: en
 status: true
-dependencies: {  }
+dependencies:
+  module:
+    - localgov_step_by_step
 id: step_by_step_page
-migration_group: croydon_migration
-label: 'Step by Step page'
+migration_group: localgov_migration
+label: 'Step by step - page'
 source:
-  plugin: d8_node
-  key: migration
+  plugin: d8_entity
+  entity_type: node
   bundle: step_by_step_page
   include_translations: false
 process:
@@ -36,4 +38,9 @@ process:
 destination:
   plugin: 'entity:node'
   default_bundle: localgov_step_by_step_page
-migration_dependencies: {  }
+migration_dependencies:
+  optional:
+    - users
+    - service_landing
+    - service_sublanding
+    - step_by_step_page

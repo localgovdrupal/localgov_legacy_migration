@@ -1,14 +1,16 @@
 langcode: en
 status: true
-dependencies: {  }
+dependencies:
+  module:
+    - localgov_services_sublanding
 id: paragraph_topic_list_builder
-migration_group: croydon_migration
-label: 'Topics'
+migration_group: localgov_migration
+label: 'Topic list builder'
 source:
   plugin: d8_entity
-  key: migration
   entity_type: paragraph
   bundle: topic_list_builder
+  key: migration
 process:
   id: id
   revision_id: revision_id

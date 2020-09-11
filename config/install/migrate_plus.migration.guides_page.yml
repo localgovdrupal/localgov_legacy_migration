@@ -1,12 +1,14 @@
 langcode: en
 status: true
-dependencies: {  }
+dependencies:
+  module:
+    - localgov_guides
 id: guides_page
-migration_group: croydon_migration
-label: 'Guide page'
+migration_group: localgov_migration
+label: 'Guides - page'
 source:
-  plugin: d8_node
-  key: migration
+  plugin: d8_entity
+  entity_type: node
   bundle: guide_page
   include_translations: false
 process:
@@ -36,4 +38,7 @@ process:
 destination:
   plugin: 'entity:node'
   default_bundle: localgov_guides_page
-migration_dependencies: {  }
+migration_dependencies:
+  optional:
+    - users
+    - guides_overview

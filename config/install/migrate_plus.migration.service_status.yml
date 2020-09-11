@@ -1,12 +1,14 @@
 langcode: en
 status: true
-dependencies: {  }
+dependencies:
+  module:
+    - localgov_services_status
 id: service_status
-migration_group: croydon_migration
-label: 'Service Update Page - Status'
+migration_group: localgov_migration
+label: 'Service - status page'
 source:
-  plugin: d8_node
-  key: migration
+  plugin: d8_entity
+  entity_type: node
   bundle: service_update_page
   include_translations: false
 process:
@@ -35,4 +37,7 @@ process:
 destination:
   plugin: 'entity:node'
   default_bundle: localgov_services_status
-migration_dependencies: {  }
+migration_dependencies:
+  optional:
+    - users
+    - service_landing

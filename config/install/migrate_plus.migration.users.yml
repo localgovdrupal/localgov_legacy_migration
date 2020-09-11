@@ -1,0 +1,30 @@
+langcode: en
+status: true
+dependencies: {  }
+id: users
+migration_group: localgov_migration
+label: 'User accounts'
+source:
+  plugin: d8_entity
+  entity_type: user
+process:
+  # Don't migrate user 0
+  uid:
+    -
+      plugin: skip_on_value
+      method: row
+      source: uid
+      value:
+        - 0
+  name: name
+  pass: pass
+  mail: mail
+  created: created
+  access: access
+  login: login
+  status: status
+  timezone: timezone
+  init: init
+destination:
+  plugin: 'entity:user'
+migration_dependencies: {  }

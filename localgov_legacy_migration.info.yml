@@ -4,6 +4,17 @@ package: 'LocalGov Drupal'
 core_version_requirement: ^8 || ^9
 type: module
 dependencies:
+  # Contrib
   - drupal:migrate_plus
   - drupal:migrate_drupal_d8
   - drupal:migrate_tools
+  # LocalGov Drupal
+  - localgov_guides:localgov_guides
+  - localgov_paragraphs:localgov_paragraphs
+  - localgov_services:localgov_services_landing
+  - localgov_services:localgov_services_navigation
+  - localgov_services:localgov_services_page
+  - localgov_services:localgov_services_status
+  - localgov_services:localgov_services_sublanding
+  - localgov_step_by_step:localgov_step_by_step
+  - localgov_topics:localgov_topics
