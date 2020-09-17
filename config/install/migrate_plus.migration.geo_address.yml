@@ -1,0 +1,47 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - localgov_directories_page
+id: geo_address
+migration_group: localgov_migration
+label: 'Geo - address'
+source:
+  plugin: d8_entity
+  entity_type: node
+  bundle: directory_item
+process:
+  # Process directory entries with a Geofield in Geo entities.
+  location:
+    -
+      plugin: skip_on_empty
+      method: row
+      source: field_geofield
+    -
+      plugin: geo_location_to_field
+  uid: uid
+  status:
+    - plugin: default_value
+      default_value: true
+  created: created
+  changed: changed
+  langcode: langcode
+  accessibility: field_accessibility
+  postal_address:
+    plugin: sub_process
+    source: field_addressfield
+    process:
+      country_code:
+        plugin: default_value
+        default_value: GB
+      address_line1: street
+      locality: city
+      postal_code: postcode
+destination:
+  plugin: 'entity:localgov_geo'
+  default_bundle: address
+migration_dependencies:
+  required:
+    - directory_channel
+  optional:
+    - users
