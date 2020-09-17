@@ -12,6 +12,7 @@ dependencies:
   - localgov_directories:localgov_directories
   - localgov_directories:localgov_directories_page
   - localgov_directories:localgov_directories_venue
+  - localgov_core:localgov_media
   - localgov_guides:localgov_guides
   - localgov_paragraphs:localgov_paragraphs
   - localgov_services:localgov_services_landing
