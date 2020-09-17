@@ -15,8 +15,12 @@ source:
 process:
   entity_type: 'constants/entity_type'
   id:
-    plugin: machine_name
-    source: name
+    -
+      plugin: machine_name
+      source: name
+    -
+      plugin: substr
+      length: 32
   label: name
   langcode: langcode
   status: status

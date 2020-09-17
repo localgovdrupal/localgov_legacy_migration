@@ -58,7 +58,14 @@ process:
     plugin: fix_url
     source: field_website_plain
   localgov_directory_notes: field_other_text
-  localgov_directory_opening_times: field_opening_times
+  localgov_directory_opening_times:
+    plugin: sub_process
+    source: field_opening_times
+    process:
+      value: value
+      format:
+        plugin: default_value
+        default_value: wysiwyg
   localgov_location:
     plugin: migration_lookup
     migration: geo_address
