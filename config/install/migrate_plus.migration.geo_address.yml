@@ -11,11 +11,11 @@ source:
   entity_type: node
   bundle: directory_item
 process:
-  # Process directory entries with a Geofield in Geo entities.
+  # Process directory entries with Geofield data into LocalGov Geo address entities.
   location:
     -
-      plugin: skip_on_empty
-      method: row
+      plugin: skip_row_if_not_set
+      index: 0
       source: field_geofield
     -
       plugin: geo_location_to_field
