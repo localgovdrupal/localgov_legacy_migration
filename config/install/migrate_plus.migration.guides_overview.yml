@@ -7,7 +7,7 @@ id: guides_overview
 migration_group: localgov_migration
 label: 'Guides - overview'
 source:
-  plugin: d8_entity
+  plugin: d8_entity_path
   entity_type: node
   bundle: guide_overview
   include_translations: false
@@ -41,6 +41,11 @@ process:
     source:
       - field_sub_hub
       - field_service
+  # Disable pathauto for alias migration.
+  'path/pathauto':
+    plugin: default_value
+    default_value: 0
+  'path/alias': alias
 destination:
   plugin: 'entity:node'
   default_bundle: localgov_guides_overview

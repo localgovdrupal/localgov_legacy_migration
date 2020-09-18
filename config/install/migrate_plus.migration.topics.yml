@@ -7,7 +7,7 @@ id: topics
 migration_group: localgov_migration
 label: 'Topics'
 source:
-  plugin: d8_entity
+  plugin: d8_entity_path
   entity_type: taxonomy_term
   bundle: topic
 process:
@@ -15,6 +15,11 @@ process:
   revision_id: revision_id
   uuid: uuid
   name: name
+  # Disable pathauto for alias migration.
+  'path/pathauto':
+    plugin: default_value
+    default_value: 0
+  'path/alias': alias
 destination:
   plugin: 'entity:taxonomy_term'
   default_bundle: localgov_topic

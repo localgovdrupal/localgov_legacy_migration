@@ -7,7 +7,7 @@ id: step_by_step_page
 migration_group: localgov_migration
 label: 'Step by step - page'
 source:
-  plugin: d8_entity
+  plugin: d8_entity_path
   entity_type: node
   bundle: step_by_step_page
   include_translations: false
@@ -35,6 +35,11 @@ process:
   localgov_step_parent: field_guide_parent
   localgov_step_section_title: field_guide_section_title
   localgov_step_summary: field_step_summary
+  # Disable pathauto for alias migration.
+  'path/pathauto':
+    plugin: default_value
+    default_value: 0
+  'path/alias': alias
 destination:
   plugin: 'entity:node'
   default_bundle: localgov_step_by_step_page
