@@ -7,7 +7,7 @@ id: guides_page
 migration_group: localgov_migration
 label: 'Guides - page'
 source:
-  plugin: d8_entity
+  plugin: d8_entity_path
   entity_type: node
   bundle: guide_page
   include_translations: false
@@ -35,6 +35,11 @@ process:
   localgov_guides_parent: field_guide_parent
   localgov_guides_section_title: field_guide_section_title
   localgov_topic_classified: field_topic_term
+  # Disable pathauto for alias migration.
+  'path/pathauto':
+    plugin: default_value
+    default_value: 0
+  'path/alias': alias
 destination:
   plugin: 'entity:node'
   default_bundle: localgov_guides_page

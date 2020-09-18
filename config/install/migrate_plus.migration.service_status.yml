@@ -7,7 +7,7 @@ id: service_status
 migration_group: localgov_migration
 label: 'Service - status page'
 source:
-  plugin: d8_entity
+  plugin: d8_entity_path
   entity_type: node
   bundle: service_update_page
   include_translations: false
@@ -34,6 +34,11 @@ process:
         summary: summary
   field_service_status: field_service_status
   localgov_services_parent: field_service
+  # Disable pathauto for alias migration.
+  'path/pathauto':
+    plugin: default_value
+    default_value: 0
+  'path/alias': alias
 destination:
   plugin: 'entity:node'
   default_bundle: localgov_services_status
