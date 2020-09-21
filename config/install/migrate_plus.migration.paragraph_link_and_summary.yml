@@ -1,0 +1,29 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - localgov_campaigns_paragraphs
+id: paragraph_link_and_summary
+migration_group: localgov_migration
+label: 'Paragraph - link and summary'
+source:
+  plugin: d8_entity
+  entity_type: paragraph
+  bundle: link_and_summary
+process:
+  id: id
+  revision_id: revision_id
+  langcode: langcode
+  localgov_summary:
+    plugin: sub_process
+    source: field_summary
+    process:
+      value: value
+      format:
+        plugin: default_value
+        default_value: wysiwyg
+  localgov_link: field_link
+destination:
+  plugin: 'entity:paragraph'
+  default_bundle: localgov_link_and_summary
+migration_dependencies: {  }
