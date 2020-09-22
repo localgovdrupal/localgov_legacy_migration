@@ -25,12 +25,7 @@ process:
   localgov_campaigns_content:
     plugin: layout_paragraphs
     source: field_page_builder_advanced
-  localgov_campaigns_summary:
-    plugin: extract
-    source: body
-    index:
-      - 0
-      - summary
+  localgov_campaigns_summary: 'body/summary'
   localgov_campaigns_topic: field_topic_term
 destination:
   plugin: 'entity:node'
