@@ -1,0 +1,30 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - localgov_directories
+id: directories_facets
+migration_group: localgov_migration
+label: 'Directories facets type'
+source:
+  plugin: d8_entity
+  entity_type: taxonomy_term
+  bundle: directory_facet_option
+process:
+  bundle:
+    -
+      plugin: taxonomy_lookup
+      migration: directories_facets_type
+      source: field_parent_facet
+    -
+      plugin: extract
+      index:
+        - 0
+  title: name
+  langcode: langcode
+  status: status
+destination:
+  plugin: 'entity:localgov_directories_facets'
+migration_dependencies:
+  required:
+    - directories_facets_type

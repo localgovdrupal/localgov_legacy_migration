@@ -1,0 +1,87 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - localgov_directories_page
+id: directory_venue
+migration_group: localgov_migration
+label: 'Directory - venue'
+source:
+  plugin: d8_entity
+  entity_type: node
+  bundle: directory_item
+  include_translations: false
+process:
+  # Skip if Geofield data is missing as this should be a localgov_directories_page.
+  location:
+    plugin: skip_row_if_not_set
+    index: 0
+    source: field_geofield
+  nid: nid
+  vid: vid
+  uuid: uuid
+  uid: uid
+  status: status
+  created: created
+  changed: changed
+  comment: comment
+  title: title
+  body:
+    plugin: sub_process
+    source: body
+    process:
+      value: value
+      format:
+        plugin: default_value
+        default_value: wysiwyg
+      summary: summary
+  localgov_directory_channels: field_directory
+  localgov_directory_facets_select:
+    plugin: taxonomy_lookup
+    migration: directories_facets
+    source: field_facet_options
+  localgov_directory_address:
+    plugin: sub_process
+    source: field_addressfield
+    process:
+      country_code:
+        plugin: default_value
+        default_value: GB
+      address_line1: street
+      locality: city
+      postal_code: postcode
+  localgov_directory_email: field_email_address
+  localgov_directory_phone: field_phone
+  localgov_directory_website:
+    plugin: fix_url
+    source: field_website_plain
+  localgov_directory_notes:
+    plugin: sub_process
+    source: field_other_text
+    process:
+      value: value
+      format:
+        plugin: default_value
+        default_value: wysiwyg
+  localgov_directory_opening_times:
+    plugin: sub_process
+    source: field_opening_times
+    process:
+      value: value
+      format:
+        plugin: default_value
+        default_value: wysiwyg
+  localgov_location:
+    plugin: migration_lookup
+    migration: geo_address
+    source: nid
+destination:
+  plugin: 'entity:node'
+  default_bundle: localgov_directories_venue
+migration_dependencies:
+  required:
+    - directories_facets
+    - directory_channel
+    - geo_address
+  optional:
+    - users
