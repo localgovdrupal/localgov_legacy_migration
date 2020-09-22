@@ -32,12 +32,7 @@ process:
     source: field_page_builder_advanced
   localgov_campaigns_colour_accent: field_select_colourway_accent
   localgov_campaigns_colour_grad: field_select_colorway
-  localgov_campaigns_summary:
-    plugin: extract
-    source: body
-    index:
-      - 0
-      - summary
+  localgov_campaigns_summary: 'body/summary'
 destination:
   plugin: 'entity:node'
   default_bundle: localgov_campaigns_overview
