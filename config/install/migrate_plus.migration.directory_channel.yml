@@ -1,0 +1,49 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - localgov_directories
+id: directory_channel
+migration_group: localgov_migration
+label: 'Directory - channel'
+source:
+  plugin: d8_entity
+  entity_type: node
+  bundle: directory_listing
+  include_translations: false
+  constants:
+    # List of directory item content types to enable for channel.
+    channel_types:
+      - localgov_directories_page
+      - localgov_directories_venue
+process:
+  nid: nid
+  vid: vid
+  uuid: uuid
+  uid: uid
+  status: status
+  created: created
+  changed: changed
+  comment: comment
+  title: title
+  body:
+    plugin: sub_process
+    source: field_description
+    process:
+      value: value
+      format:
+        plugin: default_value
+        default_value: wysiwyg
+  localgov_directory_channel_types: 'constants/channel_types'
+  localgov_directory_facets_enable:
+    plugin: taxonomy_lookup
+    migration: directories_facets_type
+    source: field_directory_facets
+destination:
+  plugin: 'entity:node'
+  default_bundle: localgov_directory
+migration_dependencies:
+  required:
+    - directories_facets_type
+  optional:
+    - users

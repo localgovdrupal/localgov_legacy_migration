@@ -9,6 +9,9 @@ dependencies:
   - drupal:migrate_drupal_d8
   - drupal:migrate_tools
   # LocalGov Drupal
+  - localgov_directories:localgov_directories
+  - localgov_directories:localgov_directories_page
+  - localgov_directories:localgov_directories_venue
   - localgov_guides:localgov_guides
   - localgov_paragraphs:localgov_paragraphs
   - localgov_services:localgov_services_landing
