@@ -1,0 +1,24 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - localgov_campaigns_paragraphs
+id: paragraph_fact_box
+migration_group: localgov_migration
+label: 'Paragraph - fact box'
+source:
+  plugin: d8_entity
+  entity_type: paragraph
+  bundle: fact_box
+process:
+  id: id
+  revision_id: revision_id
+  langcode: langcode
+  localgov_above_text: field_above_text
+  localgov_background: field_background
+  localgov_below_text: field_below_text
+  localgov_fact: field_fact
+destination:
+  plugin: 'entity:paragraph'
+  default_bundle: localgov_fact_box
+migration_dependencies: {  }
