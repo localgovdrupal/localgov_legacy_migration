@@ -1,0 +1,29 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - localgov_directories
+id: directories_facets_type
+migration_group: localgov_migration
+label: 'Directories facets type'
+source:
+  plugin: d8_entity
+  entity_type: taxonomy_term
+  bundle: directory_facet
+  constants:
+    entity_type: directories_facets_type
+process:
+  entity_type: 'constants/entity_type'
+  id:
+    -
+      plugin: machine_name
+      source: name
+    -
+      plugin: substr
+      length: 32
+  label: name
+  langcode: langcode
+  status: status
+destination:
+  plugin: 'entity:localgov_directories_facets_type'
+migration_dependencies: {  }

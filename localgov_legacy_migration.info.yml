@@ -11,6 +11,9 @@ dependencies:
   # LocalGov Drupal
   - localgov_core:localgov_media
   - localgov_campaigns:localgov_campaigns_paragraphs
+  - localgov_directories:localgov_directories
+  - localgov_directories:localgov_directories_page
+  - localgov_directories:localgov_directories_venue
   - localgov_guides:localgov_guides
   - localgov_paragraphs:localgov_paragraphs
   - localgov_services:localgov_services_landing
