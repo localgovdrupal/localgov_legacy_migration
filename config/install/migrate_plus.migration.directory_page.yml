@@ -7,7 +7,7 @@ id: directory_page
 migration_group: localgov_migration
 label: 'Directory - page'
 source:
-  plugin: d8_entity
+  plugin: d8_entity_path
   entity_type: node
   bundle: directory_item
   include_translations: false
@@ -57,6 +57,11 @@ process:
   localgov_directory_website:
     plugin: fix_url
     source: field_website_plain
+  # Disable pathauto for alias migration.
+  'path/pathauto':
+    plugin: default_value
+    default_value: 0
+  'path/alias': alias
 destination:
   plugin: 'entity:node'
   default_bundle: localgov_directories_page
