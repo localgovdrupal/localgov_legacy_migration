@@ -13,7 +13,7 @@ source:
 process:
   bundle:
     -
-      plugin: taxonomy_lookup
+      plugin: entity_ref_lookup
       migration: directories_facets_type
       source: field_parent_facet
     -

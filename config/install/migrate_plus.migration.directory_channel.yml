@@ -7,7 +7,7 @@ id: directory_channel
 migration_group: localgov_migration
 label: 'Directory - channel'
 source:
-  plugin: d8_entity
+  plugin: d8_entity_path
   entity_type: node
   bundle: directory_listing
   include_translations: false
@@ -36,9 +36,14 @@ process:
         default_value: wysiwyg
   localgov_directory_channel_types: 'constants/channel_types'
   localgov_directory_facets_enable:
-    plugin: taxonomy_lookup
+    plugin: entity_ref_lookup
     migration: directories_facets_type
     source: field_directory_facets
+  # Disable pathauto for alias migration.
+  'path/pathauto':
+    plugin: default_value
+    default_value: 0
+  'path/alias': alias
 destination:
   plugin: 'entity:node'
   default_bundle: localgov_directory

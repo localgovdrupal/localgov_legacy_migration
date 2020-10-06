@@ -7,7 +7,7 @@ id: service_landing
 migration_group: localgov_migration
 label: 'Services - landing page'
 source:
-  plugin: d8_entity
+  plugin: d8_entity_path
   entity_type: node
   bundle: service_hub
   include_translations: false
@@ -46,6 +46,11 @@ process:
   field_popular_topics: field_popular_topics
   field_common_tasks: field_common_tasks
   field_twitter: field_twitter
+  # Disable pathauto for alias migration.
+  'path/pathauto':
+    plugin: default_value
+    default_value: 0
+  'path/alias': alias
 destination:
   plugin: 'entity:node'
   default_bundle: localgov_services_landing

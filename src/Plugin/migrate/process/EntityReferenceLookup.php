@@ -8,20 +8,22 @@ use Drupal\migrate\ProcessPluginBase;
 use Drupal\migrate\Row;
 
 /**
- * Lookup IDs from migrations using taxonomy term IDs.
+ * Lookup IDs from migrations using entity reference IDs.
  *
  * @MigrateProcessPlugin(
- *   id = "taxonomy_lookup"
+ *   id = "entity_ref_lookup"
  * )
  *
+ * To do custom value transformations use the following:
+ *
  * @code
- * localgov_directory_facets_select::
- *   plugin: taxonomy_lookup
- *   migration: directories_facets
- *   source: field_facet_options
+ * localgov_image:
+ *   plugin: entity_ref_lookup
+ *   source: field_image
+ *   migration: media_image
  * @endcode
  */
-class TaxonomyLookup extends ProcessPluginBase {
+class EntityReferenceLookup extends ProcessPluginBase {
 
   /**
    * {@inheritdoc}
