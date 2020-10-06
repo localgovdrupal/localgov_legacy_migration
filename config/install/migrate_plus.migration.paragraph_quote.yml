@@ -2,22 +2,21 @@ langcode: en
 status: true
 dependencies:
   module:
-    - localgov_services_sublanding
-id: paragraph_topic_list_builder
+    - localgov_campaigns_paragraphs
+id: paragraph_quote
 migration_group: localgov_migration
-label: 'Topic list builder'
+label: 'Paragraph - call out box'
 source:
   plugin: d8_entity
   entity_type: paragraph
-  bundle: topic_list_builder
+  bundle: quote
 process:
   id: id
   revision_id: revision_id
   langcode: langcode
-  topic_list_header: field_header_text
-  topic_list_links: field_links
-  topic_list_term: field_topic_term
+  localgov_author: field_author
+  localgov_text_plain: field_text_plain
 destination:
   plugin: 'entity:paragraph'
-  default_bundle: topic_list_builder
+  default_bundle: localgov_quote
 migration_dependencies: {  }

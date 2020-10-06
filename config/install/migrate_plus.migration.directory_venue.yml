@@ -37,7 +37,7 @@ process:
       summary: summary
   localgov_directory_channels: field_directory
   localgov_directory_facets_select:
-    plugin: taxonomy_lookup
+    plugin: entity_ref_lookup
     migration: directories_facets
     source: field_facet_options
   localgov_directory_address:

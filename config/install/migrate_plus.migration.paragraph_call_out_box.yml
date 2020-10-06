@@ -1,0 +1,36 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - localgov_campaigns_paragraphs
+id: paragraph_call_out_box
+migration_group: localgov_migration
+label: 'Paragraph - call out box'
+source:
+  plugin: d8_entity
+  entity_type: paragraph
+  bundle: call_out_box
+process:
+  id: id
+  revision_id: revision_id
+  langcode: langcode
+  localgov_background_image:
+    plugin: entity_ref_lookup
+    migration: media_image
+    source: field_background_image
+  localgov_body_text:
+    plugin: sub_process
+    source: field_body_text
+    process:
+      value: value
+      format:
+        plugin: default_value
+        default_value: wysiwyg
+  localgov_button: field_button
+  localgov_header_text: field_header_text
+destination:
+  plugin: 'entity:paragraph'
+  default_bundle: localgov_call_out_box
+migration_dependencies:
+  required:
+    - media_image

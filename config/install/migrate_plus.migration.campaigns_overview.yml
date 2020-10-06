@@ -1,0 +1,50 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - localgov_guides
+id: campaigns_overview
+migration_group: localgov_migration
+label: 'Campaigns - overview'
+source:
+  plugin: d8_entity
+  entity_type: node
+  bundle: campaign_overview
+  include_translations: false
+process:
+  nid: nid
+  vid: vid
+  uuid: uuid
+  uid: uid
+  status: status
+  created: created
+  changed: changed
+  comment: comment
+  title: title
+  localgov_campaigns_banner_image:
+    plugin: entity_ref_lookup
+    migration: media_image
+    source: field_banner
+  localgov_campaigns_pages: field_campaign_pages
+  localgov_campaigns_hide_menu: field_hide_sidebar
+  localgov_campaigns_content:
+    plugin: layout_paragraphs
+    source: field_page_builder_advanced
+  localgov_campaigns_colour_accent: field_select_colourway_accent
+  localgov_campaigns_colour_grad: field_select_colorway
+  localgov_campaigns_summary: 'body/summary'
+destination:
+  plugin: 'entity:node'
+  default_bundle: localgov_campaigns_overview
+migration_dependencies:
+  required:
+    - media_image
+  optional:
+    - paragraph_box_link
+    - paragraph_call_out_box
+    - paragraph_fact_box
+    - paragraph_link
+    - paragraph_link_and_summary
+    - paragraph_quote
+    - paragrpah_text
+    - users
