@@ -40,6 +40,7 @@ process:
     plugin: default_value
     default_value: 0
   'path/alias': alias
+  moderation_state: moderation_state
 destination:
   plugin: 'entity:node'
   default_bundle: localgov_step_by_step_page

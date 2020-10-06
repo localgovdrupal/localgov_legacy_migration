@@ -27,6 +27,7 @@ process:
     source: field_page_builder_advanced
   localgov_campaigns_summary: 'body/summary'
   localgov_campaigns_topic: field_topic_term
+  moderation_state: moderation_state
 destination:
   plugin: 'entity:node'
   default_bundle: localgov_campaigns_page

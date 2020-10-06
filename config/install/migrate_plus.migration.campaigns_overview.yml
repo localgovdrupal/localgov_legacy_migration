@@ -33,6 +33,7 @@ process:
   localgov_campaigns_colour_accent: field_select_colourway_accent
   localgov_campaigns_colour_grad: field_select_colorway
   localgov_campaigns_summary: 'body/summary'
+  moderation_state: moderation_state
 destination:
   plugin: 'entity:node'
   default_bundle: localgov_campaigns_overview
