@@ -44,7 +44,19 @@ process:
     plugin: default_value
     default_value: 0
   'path/alias': alias
+  # Workflow content moderation state.
   moderation_state: moderation_state
+  # Alternative Workflow content moderation state.
+  # Uncomment the following (and comment out the above) if the source site did
+  # not have workflow / content moderation switched on for this content type
+  # moderation_state:
+  #   -
+  #     plugin: static_map
+  #     source: status
+  #     default_value: draft
+  #     map:
+  #       '0': draft
+  #       '1': published
 destination:
   plugin: 'entity:node'
   default_bundle: localgov_directory
