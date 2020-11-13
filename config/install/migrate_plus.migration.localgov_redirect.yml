@@ -1,0 +1,25 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - redirect
+id: localgov_redirect
+migration_group: localgov_migration
+label: 'Redirects'
+source:
+  plugin: d8_entity
+  entity_type: redirect
+process:
+  created: created
+  language: language
+  redirect_source/path: redirect_source__path
+  redirect_source/query: redirect_source__query
+  redirect_redirect/uri: redirect_redirect__uri
+  redirect_redirect/title: redirect_redirect__title
+  redirect_redirect/options: redirect_redirect__options
+  status_code: status_code
+  type: type
+  uid: uid
+  uuid: uuid
+destination:
+  plugin: entity:redirect
