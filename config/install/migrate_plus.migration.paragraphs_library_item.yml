@@ -1,0 +1,26 @@
+langcode: en
+status: true
+dependencies: {  }
+id: paragraphs_library_item
+migration_group: localgov_migration
+label: 'Page components'
+source:
+  plugin: d8_entity
+  entity_type: paragraphs_library_item
+process:
+  id: id
+  uuid: uuid
+  langcode: langcode
+  status: status
+  label: label
+  paragraphs/target_id: paragraphs__target_id
+  paragraphs/target_revision_id: paragraphs__target_revision_id
+  created: created
+  changed: changed
+  uid: uid
+destination:
+  plugin: 'entity:paragraphs_library_item'
+migration_dependencies:
+  required:
+    - paragraph_contact
+    - paragraph_link
