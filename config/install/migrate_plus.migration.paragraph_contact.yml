@@ -1,0 +1,41 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - localgov_paragraphs
+id: paragraph_contact
+migration_group: localgov_migration
+label: 'Paragraph - Contact'
+source:
+  plugin: d8_entity
+  entity_type: paragraph
+  bundle: contact
+process:
+  created: created
+  id: id
+  revision_id: revision_id
+  langcode: langcode
+  localgov_contact_address: field_para_contact_address
+  localgov_contact_url: field_para_contact_url
+  localgov_contact_email: field_para_contact_email
+  localgov_contact_facebook: field_para_contact_facebook
+  localgov_contact_heading: field_para_contact_heading
+  localgov_contact_instagram: field_para_contact_instagram
+  localgov_contact_location: field_para_contact_location
+  localgov_contact_minicom: field_para_contact_minicom
+  localgov_contact_mobile: field_para_contact_mobile
+  localgov_contact_office_hours: field_para_contact_office_hours
+  localgov_contact_other_social: field_para_contact_other_social
+  localgov_contact_other_url: field_para_contact_other_url
+  localgov_contact_out_of_hours: field_para_contact_out_of_hours
+  localgov_contact_phone: field_para_contact_phone
+  localgov_contact_subheading: field_para_contact_subheading
+  localgov_contact_twitter: field_para_contact_twitter
+  parent_id: parent_id
+  parent_type: parent_type
+  parent_field_name: parent_field_name
+  status: status
+destination:
+  plugin: 'entity:paragraph'
+  default_bundle: localgov_contact
+migration_dependencies: {  }
