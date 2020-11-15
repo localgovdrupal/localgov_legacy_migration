@@ -1,0 +1,23 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - localgov_services_sublanding
+id: paragraph_topic_list_builder_revisions
+migration_group: localgov_migration
+label: 'Topic list builder (revisions)'
+source:
+  plugin: d8_entity_revisions
+  entity_type: paragraph
+  bundle: topic_list_builder
+process:
+  id: id
+  revision_id: revision_id
+  langcode: langcode
+  topic_list_header: field_header_text
+  topic_list_links: field_links
+  topic_list_term: field_topic_term
+destination:
+  plugin: 'entity_revision:paragraph'
+  default_bundle: topic_list_builder
+migration_dependencies: {  }
