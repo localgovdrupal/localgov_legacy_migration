@@ -19,7 +19,6 @@ source:
 process:
   nid: nid
   vid: vid
-  uuid: uuid
   uid: uid
   status: status
   created: created
