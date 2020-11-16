@@ -10,6 +10,7 @@ source:
   plugin: d8_entity
   entity_type: node
   bundle: directory_item
+  track_changes: true
 process:
   # Process directory entries with Geofield data into LocalGov Geo address entities.
   location:

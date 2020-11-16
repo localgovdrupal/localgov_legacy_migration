@@ -12,6 +12,7 @@ source:
     # Specify this in the sites settings.local.php file as:
     # $config['migrate_plus.migration.file']['source']['constants']['source_base_path'] = 'https://example.com';
     source_base_path: ''
+  track_changes: true
 process:
   fid: fid
   filename: filename

@@ -12,6 +12,7 @@ source:
   bundle: directory_facet
   constants:
     entity_type: directories_facets_type
+  track_changes: true
 process:
   entity_type: 'constants/entity_type'
   id:

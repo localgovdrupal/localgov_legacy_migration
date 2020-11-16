@@ -11,6 +11,7 @@ source:
   entity_type: node
   bundle: directory_item
   include_translations: false
+  track_changes: true
 process:
   # Skip if Geofield data is missing as this should be a localgov_directories_page.
   location:
@@ -18,7 +19,6 @@ process:
     index: 0
     source: field_geofield
   nid: nid
-  vid: vid
   uuid: uuid
   uid: uid
   status: status
