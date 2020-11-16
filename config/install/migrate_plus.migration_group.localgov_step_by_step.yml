@@ -1,0 +1,22 @@
+id: localgov_step_by_step
+
+label: 'LocalGov Step-by-step'
+
+description: 'Targets Step-by-step overview and Step-by-step page content types.'
+
+source_type: 'Drupal 8 site'
+
+shared_configuration:
+  dependencies:
+    enforced:
+      module:
+      - localgov_step_by_step
+      - localgov_legacy_migration
+  source:
+    key: migration
+
+dependencies:
+  enforced:
+    module:
+      - localgov_step_by_step
+      - localgov_legacy_migration

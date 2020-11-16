@@ -4,7 +4,7 @@ dependencies:
   module:
     - localgov_services_status
 id: service_status
-migration_group: localgov_migration
+migration_group: localgov_services
 label: 'Service - status page'
 source:
   plugin: d8_entity_path

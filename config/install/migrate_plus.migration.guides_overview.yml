@@ -4,7 +4,7 @@ dependencies:
   module:
     - localgov_guides
 id: guides_overview
-migration_group: localgov_migration
+migration_group: localgov_guides
 label: 'Guides - overview'
 source:
   plugin: d8_entity_path

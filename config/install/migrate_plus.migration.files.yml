@@ -2,7 +2,7 @@ langcode: en
 status: true
 dependencies: {  }
 id: files
-migration_group: localgov_migration
+migration_group: localgov_media
 label: 'File entities'
 source:
   plugin: d8_entity

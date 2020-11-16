@@ -1,0 +1,22 @@
+id: localgov_media
+
+label: 'LocalGov Media'
+
+description: 'Targets Media related entities.'
+
+source_type: 'Drupal 8 site'
+
+shared_configuration:
+  dependencies:
+    enforced:
+      module:
+      - localgov_media
+      - localgov_legacy_migration
+  source:
+    key: migration
+
+dependencies:
+  enforced:
+    module:
+      - localgov_media
+      - localgov_legacy_migration

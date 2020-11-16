@@ -4,7 +4,7 @@ dependencies:
   module:
     - localgov_guides
 id: campaigns_page
-migration_group: localgov_migration
+migration_group: localgov_campaigns
 label: 'Campaigns - page'
 source:
   plugin: d8_entity

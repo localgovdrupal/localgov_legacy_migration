@@ -1,0 +1,24 @@
+id: localgov_paragraphs
+
+label: 'LocalGov Paragraphs'
+
+description: 'Targets Paragraph related entities.'
+
+source_type: 'Drupal 8 site'
+
+shared_configuration:
+  dependencies:
+    enforced:
+      module:
+      - localgov_campaigns_paragraphs
+      - localgov_paragraphs
+      - localgov_legacy_migration
+  source:
+    key: migration
+
+dependencies:
+  enforced:
+    module:
+      - localgov_campaigns_paragraphs
+      - localgov_paragraphs
+      - localgov_legacy_migration
