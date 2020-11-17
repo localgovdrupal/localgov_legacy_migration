@@ -10,6 +10,7 @@ source:
   plugin: d8_entity
   entity_type: taxonomy_term
   bundle: directory_facet_option
+  track_changes: true
 process:
   bundle:
     -

@@ -11,6 +11,7 @@ source:
   entity_type: node
   bundle: directory_item
   include_translations: false
+  track_changes: true
 process:
   # Skip if geofield is set as this should be a localgov_directories_venue.
   location:
@@ -18,7 +19,6 @@ process:
     method: row
     source: field_geofield
   nid: nid
-  vid: vid
   uuid: uuid
   uid: uid
   status: status

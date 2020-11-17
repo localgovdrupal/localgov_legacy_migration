@@ -16,9 +16,9 @@ source:
     channel_types:
       - localgov_directories_page
       - localgov_directories_venue
+  track_changes: true
 process:
   nid: nid
-  vid: vid
   uuid: uuid
   uid: uid
   status: status

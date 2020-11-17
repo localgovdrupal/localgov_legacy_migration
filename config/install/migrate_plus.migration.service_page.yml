@@ -11,9 +11,9 @@ source:
   entity_type: node
   bundle: service_info
   include_translations: false
+  track_changes: true
 process:
   nid: nid
-  vid: vid
   uuid: uuid
   uid: uid
   status: status
