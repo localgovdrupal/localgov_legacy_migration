@@ -6,6 +6,8 @@ dependencies:
 id: service_page
 migration_group: localgov_migration
 label: 'Services - page'
+migration_tags:
+  - localgov_content_type
 source:
   plugin: d8_entity_path
   entity_type: node

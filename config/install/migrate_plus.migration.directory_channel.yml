@@ -6,6 +6,8 @@ dependencies:
 id: directory_channel
 migration_group: localgov_migration
 label: 'Directory - channel'
+migration_tags:
+  - localgov_content_type
 source:
   plugin: d8_entity_path
   entity_type: node

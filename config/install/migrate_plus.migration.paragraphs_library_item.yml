@@ -4,6 +4,8 @@ dependencies: {  }
 id: paragraphs_library_item
 migration_group: localgov_migration
 label: 'Page components'
+migration_tags:
+  - localgov_paragraphs
 source:
   plugin: d8_entity
   entity_type: paragraphs_library_item

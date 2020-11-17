@@ -6,6 +6,8 @@ dependencies:
 id: service_status
 migration_group: localgov_migration
 label: 'Service - status page'
+migration_tags:
+  - localgov_content_type
 source:
   plugin: d8_entity_path
   entity_type: node

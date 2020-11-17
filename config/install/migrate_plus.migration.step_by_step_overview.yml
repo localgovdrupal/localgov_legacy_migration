@@ -6,6 +6,8 @@ dependencies:
 id: step_by_step_overview
 migration_group: localgov_migration
 label: 'Step by step - overview'
+migration_tags:
+  - localgov_content_type
 source:
   plugin: d8_entity_path
   entity_type: node

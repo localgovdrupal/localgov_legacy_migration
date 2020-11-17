@@ -6,6 +6,8 @@ dependencies:
 id: paragraph_topic_list_builder
 migration_group: localgov_migration
 label: 'Topic list builder'
+migration_tags:
+  - localgov_paragraphs
 source:
   plugin: d8_entity
   entity_type: paragraph

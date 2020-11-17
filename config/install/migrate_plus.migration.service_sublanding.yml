@@ -6,6 +6,8 @@ dependencies:
 id: service_sublanding
 migration_group: localgov_migration
 label: 'Service - sub-landing page'
+migration_tags:
+  - localgov_content_type
 source:
   plugin: d8_entity_path
   entity_type: node

@@ -6,6 +6,8 @@ dependencies:
 id: paragraph_box_link
 migration_group: localgov_migration
 label: 'Paragraph - box link'
+migration_tags:
+  - localgov_paragraphs
 source:
   plugin: d8_entity
   entity_type: paragraph

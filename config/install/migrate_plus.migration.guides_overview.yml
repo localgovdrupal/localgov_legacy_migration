@@ -6,6 +6,8 @@ dependencies:
 id: guides_overview
 migration_group: localgov_migration
 label: 'Guides - overview'
+migration_tags:
+  - localgov_content_type
 source:
   plugin: d8_entity_path
   entity_type: node
