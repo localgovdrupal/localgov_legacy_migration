@@ -21,7 +21,7 @@ process:
       value: value
       format:
         plugin: default_value
-        default_value: wysiwyg
+        default_value: cds_full_html
   localgov_link: field_link
 destination:
   plugin: 'entity:paragraph'

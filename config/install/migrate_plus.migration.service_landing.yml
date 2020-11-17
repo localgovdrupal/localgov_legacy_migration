@@ -30,7 +30,7 @@ process:
         format:
           -
             plugin: default_value
-            default_value: wysiwyg
+            default_value: cds_full_html
         summary: summary
   field_address: field_address
   field_destinations: field_destinations

@@ -25,7 +25,7 @@ process:
       value: value
       format:
         plugin: default_value
-        default_value: wysiwyg
+        default_value: cds_full_html
   localgov_button: field_button
   localgov_header_text: field_header_text
 destination:

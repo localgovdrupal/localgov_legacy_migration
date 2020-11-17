@@ -33,7 +33,7 @@ process:
       value: value
       format:
         plugin: default_value
-        default_value: wysiwyg
+        default_value: cds_full_html
   localgov_directory_channel_types: 'constants/channel_types'
   localgov_directory_facets_enable:
     plugin: entity_ref_lookup
