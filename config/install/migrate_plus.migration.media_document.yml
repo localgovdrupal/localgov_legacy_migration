@@ -20,6 +20,19 @@ process:
       - 'image/jpeg'
       - 'image/png'
     source: filemime
+  # Skip if a Media document already exists for this file.
+  skip_if_media_exists:
+    -
+      plugin: entity_lookup
+      entity_type: media
+      bundle: document
+      bundle_key: bundle
+      value_key: field_media_document
+      source: fid
+      ignore_case: true
+    -
+      plugin: skip_on_not_empty
+      method: row
   # Skip if file hasn't been migrated.
   id:
     -
@@ -41,4 +54,5 @@ destination:
   default_bundle: document
 migration_dependencies:
   required:
+    - media_existing
     - files
