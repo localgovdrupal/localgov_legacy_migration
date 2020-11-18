@@ -20,6 +20,17 @@ process:
     plugin: skip_row_if_not_set
     index: 0
     source: field_geofield
+  # Skip if this belongs to a Schools directory.
+  # Such pages should be cds_schools_directories_pages.
+  skip_if_schools_directory:
+    source: field_directory/0/target_id
+    plugin: skip_on_value
+    method: row
+    value:
+      # Secondary schools directory
+      - 1599
+      # Primary, infant and junior schools directory
+      - 1630
   nid: nid
   uuid: uuid
   uid: uid

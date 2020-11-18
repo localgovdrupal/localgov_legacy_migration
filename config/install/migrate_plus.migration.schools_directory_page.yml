@@ -2,10 +2,10 @@ langcode: en
 status: true
 dependencies:
   module:
-    - localgov_directories_page
-id: directory_page
+    - localgov_directories
+id: schools_directory_page
 migration_group: localgov_migration
-label: 'Directory - page'
+label: 'Schools directory - page'
 migration_tags:
   - localgov_content_type
 source:
@@ -15,17 +15,12 @@ source:
   include_translations: false
   track_changes: true
 process:
-  # Skip if geofield is set as this should be a localgov_directories_venue.
-  location:
-    plugin: skip_on_not_empty
-    method: row
-    source: field_geofield
-  # Skip if this belongs to a Schools directory.
-  # Such pages should be cds_schools_directories_pages.
-  skip_if_schools_directory:
+  # Skip if this does *not* belong to a Schools directory.
+  skip_if_not_schools_directory:
     source: field_directory/0/target_id
     plugin: skip_on_value
     method: row
+    not_equals: true
     value:
       # Secondary schools directory
       - 1599
@@ -55,21 +50,15 @@ process:
     plugin: entity_ref_lookup
     migration: directories_facets
     source: field_facet_options
-  localgov_directory_address:
-    plugin: sub_process
-    source: field_addressfield
-    process:
-      country_code:
-        plugin: default_value
-        default_value: GB
-      address_line1: street
-      locality: city
-      postal_code: postcode
   localgov_directory_email: field_email_address
   localgov_directory_phone: field_phone
   localgov_directory_website:
     plugin: fix_url
     source: field_website_plain
+  localgov_location:
+    plugin: migration_lookup
+    migration: geo_address
+    source: nid
   # Disable pathauto for alias migration.
   'path/pathauto':
     plugin: default_value
@@ -88,9 +77,10 @@ process:
   #     map:
   #       '0': draft
   #       '1': published
+  field_school_inspection_report/uri: field_inspection_reports/0/value
 destination:
   plugin: 'entity:node'
-  default_bundle: localgov_directories_page
+  default_bundle: cds_schools_directories_page
 migration_dependencies:
   required:
     - directories_facets
