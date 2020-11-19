@@ -17,7 +17,7 @@ use PDO;
  * )
  *
  * @code
- * localgov_campaigns_content:
+ * localgov_subsites_content:
  *   plugin: layout_paragraphs
  *   source: field_page_builder_advanced
  * @endcode

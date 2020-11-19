@@ -2,10 +2,10 @@ langcode: en
 status: true
 dependencies:
   module:
-    - localgov_guides
-id: campaigns_page
+    - localgov_subsites
+id: subsites_page
 migration_group: localgov_migration
-label: 'Campaigns - page'
+label: 'Subsites - page'
 migration_tags:
   - localgov_content_type
 source:
@@ -23,12 +23,12 @@ process:
   changed: changed
   comment: comment
   title: title
-  localgov_campaigns_parent: field_campaign
-  localgov_campaigns_content:
+  localgov_subsites_parent: field_campaign
+  localgov_subsites_content:
     plugin: layout_paragraphs
     source: field_page_builder_advanced
-  localgov_campaigns_summary: 'body/summary'
-  localgov_campaigns_topic: field_topic_term
+  localgov_subsites_summary: 'body/summary'
+  localgov_subsites_topic: field_topic_term
   # Workflow content moderation state.
   moderation_state: moderation_state
   # Alternative Workflow content moderation state.
@@ -44,10 +44,10 @@ process:
   #       '1': published
 destination:
   plugin: 'entity:node'
-  default_bundle: localgov_campaigns_page
+  default_bundle: localgov_subsites_page
 migration_dependencies:
   required:
-    - campaigns_overview
+    - subsites_overview
     - media_image
   optional:
     - paragraph_box_link
