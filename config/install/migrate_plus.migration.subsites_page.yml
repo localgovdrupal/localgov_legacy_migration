@@ -52,9 +52,11 @@ migration_dependencies:
   optional:
     - paragraph_box_link
     - paragraph_call_out_box
+    - paragraph_contact
     - paragraph_fact_box
     - paragraph_link
     - paragraph_link_and_summary
     - paragraph_quote
-    - paragrpah_text
+    - paragraph_text
+    - paragraph_topic_list_builder
     - users
