@@ -9,6 +9,7 @@ label: 'Media - images'
 source:
   plugin: d8_entity
   entity_type: file
+  track_changes: true
 process:
   # Skip anything that's not an image.
   type:

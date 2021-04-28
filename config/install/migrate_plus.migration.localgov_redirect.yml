@@ -9,6 +9,7 @@ label: 'Redirects'
 source:
   plugin: d8_entity
   entity_type: redirect
+  track_changes: true
 process:
   created: created
   language: language

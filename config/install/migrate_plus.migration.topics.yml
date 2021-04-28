@@ -10,9 +10,9 @@ source:
   plugin: d8_entity_path
   entity_type: taxonomy_term
   bundle: topic
+  track_changes: true
 process:
   tid: tid
-  revision_id: revision_id
   uuid: uuid
   name: name
   # Disable pathauto for alias migration.

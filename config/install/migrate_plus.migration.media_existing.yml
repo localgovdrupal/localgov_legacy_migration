@@ -9,9 +9,9 @@ label: 'Media - existing'
 source:
   plugin: d8_entity
   entity_type: media
+  track_changes: true
 process:
   mid: mid
-  vid: vid
   status: status
   uid: uid
   uuid: uuid
