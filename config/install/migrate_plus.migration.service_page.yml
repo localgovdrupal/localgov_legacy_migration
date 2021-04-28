@@ -4,7 +4,7 @@ dependencies:
   module:
     - localgov_services_page
 id: service_page
-migration_group: localgov_migration
+migration_group: localgov_services
 label: 'Services - page'
 source:
   plugin: d8_entity_path

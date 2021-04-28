@@ -1,10 +1,7 @@
 langcode: en
 status: true
-dependencies:
-  module:
-    - localgov_campaigns_paragraphs
 id: paragraph_fact_box
-migration_group: localgov_migration
+migration_group: localgov_paragraphs
 label: 'Paragraph - fact box'
 source:
   plugin: d8_entity

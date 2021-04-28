@@ -1,0 +1,22 @@
+id: localgov_directories
+
+label: 'LocalGov Directories'
+
+description: 'Targets Directory related entities.'
+
+source_type: 'Drupal 8 site'
+
+shared_configuration:
+  dependencies:
+    enforced:
+      module:
+      - localgov_directories
+      - localgov_legacy_migration
+  source:
+    key: migration
+
+dependencies:
+  enforced:
+    module:
+      - localgov_directories
+      - localgov_legacy_migration

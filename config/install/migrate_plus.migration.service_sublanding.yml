@@ -4,7 +4,7 @@ dependencies:
   module:
     - localgov_services_sublanding
 id: service_sublanding
-migration_group: localgov_migration
+migration_group: localgov_services
 label: 'Service - sub-landing page'
 source:
   plugin: d8_entity_path

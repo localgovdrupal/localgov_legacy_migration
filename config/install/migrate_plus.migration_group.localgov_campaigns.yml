@@ -1,0 +1,22 @@
+id: localgov_campaigns
+
+label: 'LocalGov Campaigns'
+
+description: 'Targets Campaign overview and Campaign page content types.'
+
+source_type: 'Drupal 8 site'
+
+shared_configuration:
+  dependencies:
+    enforced:
+      module:
+      - localgov_campaigns
+      - localgov_legacy_migration
+  source:
+    key: migration
+
+dependencies:
+  enforced:
+    module:
+      - localgov_campaigns
+      - localgov_legacy_migration

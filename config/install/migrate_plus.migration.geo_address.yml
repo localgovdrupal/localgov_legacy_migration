@@ -4,7 +4,7 @@ dependencies:
   module:
     - localgov_directories_page
 id: geo_address
-migration_group: localgov_migration
+migration_group: localgov_directories
 label: 'Geo - address'
 source:
   plugin: d8_entity

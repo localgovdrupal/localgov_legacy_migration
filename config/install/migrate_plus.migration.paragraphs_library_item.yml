@@ -1,8 +1,11 @@
 langcode: en
 status: true
-dependencies: {  }
+dependencies:
+  enforced:
+    module:
+      - paragraphs_library
 id: paragraphs_library_item
-migration_group: localgov_migration
+migration_group: localgov_paragraphs
 label: 'Page components'
 source:
   plugin: d8_entity

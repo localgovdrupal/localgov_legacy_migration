@@ -4,7 +4,7 @@ dependencies:
   module:
     - localgov_directories
 id: directories_facets_type
-migration_group: localgov_migration
+migration_group: localgov_directories
 label: 'Directories facets type'
 source:
   plugin: d8_entity

@@ -4,7 +4,7 @@ dependencies:
   module:
     - localgov_media
 id: media_document
-migration_group: localgov_migration
+migration_group: localgov_media
 label: 'Media - documents'
 source:
   plugin: d8_entity

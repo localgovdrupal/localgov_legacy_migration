@@ -4,7 +4,7 @@ dependencies:
   module:
     - localgov_media
 id: media_image
-migration_group: localgov_migration
+migration_group: localgov_media
 label: 'Media - images'
 source:
   plugin: d8_entity

@@ -4,7 +4,7 @@ dependencies:
   module:
     - localgov_services_landing
 id: service_landing
-migration_group: localgov_migration
+migration_group: localgov_services
 label: 'Services - landing page'
 source:
   plugin: d8_entity_path
