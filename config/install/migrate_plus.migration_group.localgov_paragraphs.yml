@@ -10,7 +10,7 @@ shared_configuration:
   dependencies:
     enforced:
       module:
-      - localgov_campaigns_paragraphs
+      - localgov_subsites_paragraphs
       - localgov_paragraphs
       - localgov_legacy_migration
   source:
@@ -19,6 +19,6 @@ shared_configuration:
 dependencies:
   enforced:
     module:
-      - localgov_campaigns_paragraphs
+      - localgov_subsites_paragraphs
       - localgov_paragraphs
       - localgov_legacy_migration

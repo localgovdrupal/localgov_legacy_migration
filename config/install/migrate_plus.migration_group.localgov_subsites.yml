@@ -1,6 +1,6 @@
-id: localgov_campaigns
+id: localgov_subsites
 
-label: 'LocalGov Campaigns'
+label: 'LocalGov Subsites'
 
 description: 'Targets Campaign overview and Campaign page content types.'
 
@@ -10,7 +10,7 @@ shared_configuration:
   dependencies:
     enforced:
       module:
-      - localgov_campaigns
+      - localgov_subsites
       - localgov_legacy_migration
   source:
     key: migration
@@ -18,5 +18,5 @@ shared_configuration:
 dependencies:
   enforced:
     module:
-      - localgov_campaigns
+      - localgov_subsites
       - localgov_legacy_migration
