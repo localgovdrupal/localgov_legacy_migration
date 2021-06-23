@@ -8,6 +8,7 @@ migration_group: localgov_migration
 label: 'Redirects'
 source:
   plugin: d8_entity
+  key: migration
   entity_type: redirect
   track_changes: true
 process:

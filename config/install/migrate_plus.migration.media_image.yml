@@ -8,6 +8,7 @@ migration_group: localgov_media
 label: 'Media - images'
 source:
   plugin: d8_entity
+  key: migration
   entity_type: file
   track_changes: true
 process:

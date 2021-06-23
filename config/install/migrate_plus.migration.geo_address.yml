@@ -8,6 +8,7 @@ migration_group: localgov_directories
 label: 'Geo - address'
 source:
   plugin: d8_entity
+  key: migration
   entity_type: node
   bundle: directory_item
   track_changes: true

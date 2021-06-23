@@ -8,6 +8,7 @@ migration_group: localgov_migration
 label: 'Subsites - overview'
 source:
   plugin: d8_entity
+  key: migration
   entity_type: node
   bundle: campaign_overview
   include_translations: false

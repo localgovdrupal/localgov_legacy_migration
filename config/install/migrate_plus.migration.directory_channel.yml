@@ -8,6 +8,7 @@ migration_group: localgov_directories
 label: 'Directory - channel'
 source:
   plugin: d8_entity_path
+  key: migration
   entity_type: node
   bundle: directory_listing
   include_translations: false

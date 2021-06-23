@@ -8,6 +8,7 @@ migration_group: localgov_paragraphs
 label: 'Paragraph - fact box'
 source:
   plugin: d8_entity
+  key: migration
   entity_type: paragraph
   bundle: fact_box
 process:

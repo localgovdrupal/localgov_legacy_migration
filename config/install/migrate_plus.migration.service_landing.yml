@@ -8,6 +8,7 @@ migration_group: localgov_services
 label: 'Services - landing page'
 source:
   plugin: d8_entity_path
+  key: migration
   entity_type: node
   bundle: service_hub
   include_translations: false

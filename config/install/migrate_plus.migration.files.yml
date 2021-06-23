@@ -6,6 +6,7 @@ migration_group: localgov_media
 label: 'File entities'
 source:
   plugin: d8_entity
+  key: migration
   entity_type: file
   #scheme: public
   constants:

@@ -6,6 +6,7 @@ migration_group: localgov_migration
 label: 'User accounts'
 source:
   plugin: d8_entity
+  key: migration
   entity_type: user
   track_changes: true
 process:

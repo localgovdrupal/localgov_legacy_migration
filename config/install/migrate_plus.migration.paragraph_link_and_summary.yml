@@ -8,6 +8,7 @@ migration_group: localgov_paragraphs
 label: 'Paragraph - link and summary'
 source:
   plugin: d8_entity
+  key: migration
   entity_type: paragraph
   bundle: link_and_summary
 process:

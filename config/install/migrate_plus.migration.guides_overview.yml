@@ -8,6 +8,7 @@ migration_group: localgov_guides
 label: 'Guides - overview'
 source:
   plugin: d8_entity_path
+  key: migration
   entity_type: node
   bundle: guide_overview
   include_translations: false

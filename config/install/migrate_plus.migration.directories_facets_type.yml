@@ -8,6 +8,7 @@ migration_group: localgov_directories
 label: 'Directories facets type'
 source:
   plugin: d8_entity
+  key: migration
   entity_type: taxonomy_term
   bundle: directory_facet
   constants:

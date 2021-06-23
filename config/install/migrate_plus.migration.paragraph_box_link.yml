@@ -8,6 +8,7 @@ migration_group: localgov_paragraphs
 label: 'Paragraph - box link'
 source:
   plugin: d8_entity
+  key: migration
   entity_type: paragraph
   bundle: box_link
 process:

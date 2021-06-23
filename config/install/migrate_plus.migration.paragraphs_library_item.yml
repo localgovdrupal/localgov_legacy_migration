@@ -9,6 +9,7 @@ migration_group: localgov_paragraphs
 label: 'Page components'
 source:
   plugin: d8_entity
+  key: migration
   entity_type: paragraphs_library_item
 process:
   id: id

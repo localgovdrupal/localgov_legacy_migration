@@ -8,6 +8,7 @@ migration_group: localgov_migration
 label: 'Topics'
 source:
   plugin: d8_entity_path
+  key: migration
   entity_type: taxonomy_term
   bundle: topic
   track_changes: true
