@@ -1,5 +1,8 @@
 langcode: en
 status: true
+dependencies:
+  module:
+    - localgov_subsites_paragraphs
 id: paragraph_call_out_box
 migration_group: localgov_paragraphs
 label: 'Paragraph - call out box'
