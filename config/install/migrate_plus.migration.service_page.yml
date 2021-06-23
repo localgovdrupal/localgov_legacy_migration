@@ -32,14 +32,14 @@ process:
             plugin: default_value
             default_value: wysiwyg
         summary: summary
-  field_download_links: field_download_links
-  field_hide_related_topics: field_hide_related_topics
-  field_page_components: field_page_components
+  localgov_download_links: field_download_links
+  localgov_hide_related_topics: field_hide_related_topics
+  localgov_page_components: field_page_components
   localgov_services_parent: field_parent_content
-  field_override_related_links: field_override_related_links
-  field_common_tasks: field_common_tasks
+  localgov_override_related_links: field_override_related_links
+  localgov_common_tasks: field_common_tasks
   localgov_topic_classified: field_all_topics
-  field_related_links: field_related_links
+  localgovrelated_links: field_related_links
   # Disable pathauto for alias migration.
   'path/pathauto':
     plugin: default_value

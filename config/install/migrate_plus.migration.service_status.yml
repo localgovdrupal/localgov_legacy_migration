@@ -32,7 +32,7 @@ process:
             plugin: default_value
             default_value: wysiwyg
         summary: summary
-  field_service_status: field_service_status
+  localgov_service_status: field_service_status
   localgov_services_parent: field_service
   # Disable pathauto for alias migration.
   'path/pathauto':
