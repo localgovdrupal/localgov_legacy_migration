@@ -37,7 +37,18 @@ process:
         summary: summary
   localgov_services_parent: field_parent_content
   localgov_topic_classified: field_all_topics
-  bhcc_application_link: field_application_link
+  bhcc_application_link:
+    -
+      plugin: sub_process
+      source: field_application_link
+      process:
+        uri: uri
+        title: title
+        options:
+          -
+            plugin: callback
+            source: options
+            callable: _bhcc_form_start_migrate_callback_unserialize_options
   # Disable pathauto for alias migration.
   'path/pathauto':
     plugin: default_value
