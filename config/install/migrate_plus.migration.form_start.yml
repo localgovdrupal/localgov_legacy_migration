@@ -35,7 +35,13 @@ process:
             plugin: default_value
             default_value: wysiwyg
         summary: summary
-  localgov_services_parent: field_parent_content
+  localgov_services_parent:
+    -
+      plugin: callback
+      callable: _localgov_legacy_migration_callback_null_coalesce_target_id
+      source:
+        - field_sub_hub
+        - field_service
   localgov_topic_classified: field_all_topics
   bhcc_application_link:
     -

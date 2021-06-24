@@ -4,3 +4,20 @@
  * @file
  * LocalGov Drupal legacy migrations module file.
  */
+
+function _localgov_legacy_migration_callback_debug($value) {
+  var_dump($value);
+  return $value;
+}
+
+function _localgov_legacy_migration_callback_null_coalesce_target_id($entity_refrences) {
+  foreach($entity_refrences as $reference) {
+    if (is_array($reference)) {
+      $first_value = reset($reference);
+      if (!empty($first_value['target_id'])) {
+        return $reference;
+      }
+    }
+  }
+  return NULL;
+}
