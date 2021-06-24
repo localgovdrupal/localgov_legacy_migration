@@ -1,0 +1,67 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - localgov_services_page
+id: form_start
+migration_group: localgov_services
+label: 'Services - page'
+migration_tags:
+  - localgov_content_type
+source:
+  plugin: d8_entity_path
+  key: migration
+  entity_type: node
+  bundle: form_start_page
+  include_translations: false
+  track_changes: true
+process:
+  nid: nid
+  uuid: uuid
+  uid: uid
+  status: status
+  created: created
+  changed: changed
+  comment: comment
+  title: title
+  body:
+    -
+      plugin: sub_process
+      source: body
+      process:
+        value: value
+        format:
+          -
+            plugin: default_value
+            default_value: wysiwyg
+        summary: summary
+  localgov_services_parent: field_parent_content
+  localgov_topic_classified: field_all_topics
+  bhcc_application_link: field_application_link
+  # Disable pathauto for alias migration.
+  'path/pathauto':
+    plugin: default_value
+    default_value: 0
+  'path/alias': alias
+  # Workflow content moderation state.
+  # moderation_state: moderation_state
+  # Alternative Workflow content moderation state.
+  # Uncomment the following (and comment out the above) if the source site did
+  # not have workflow / content moderation switched on for this content type
+  moderation_state:
+    -
+      plugin: static_map
+      source: status
+      default_value: draft
+      map:
+        '0': draft
+        '1': published
+destination:
+  plugin: 'entity:node'
+  default_bundle: form_start_page
+migration_dependencies:
+  optional:
+    - users
+    - service_landing
+    - service_sublanding
+    - topics
