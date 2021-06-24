@@ -6,6 +6,8 @@ dependencies:
 id: paragraph_link
 migration_group: localgov_paragraphs
 label: 'Paragraph - link'
+migration_tags:
+  - localgov_paragraphs
 source:
   plugin: d8_entity
   key: migration

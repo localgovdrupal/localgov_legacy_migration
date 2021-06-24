@@ -6,6 +6,8 @@ dependencies:
 id: directory_page
 migration_group: localgov_directories
 label: 'Directory - page'
+migration_tags:
+  - localgov_content_type
 source:
   plugin: d8_entity_path
   key: migration
@@ -19,6 +21,17 @@ process:
     plugin: skip_on_not_empty
     method: row
     source: field_geofield
+  # Skip if this belongs to a Schools directory.
+  # Such pages should be cds_schools_directories_pages.
+  skip_if_schools_directory:
+    source: field_directory/0/target_id
+    plugin: skip_on_value
+    method: row
+    value:
+      # Secondary schools directory
+      - 1599
+      # Primary, infant and junior schools directory
+      - 1630
   nid: nid
   uuid: uuid
   uid: uid
@@ -36,7 +49,7 @@ process:
         format:
           -
             plugin: default_value
-            default_value: wysiwyg
+            default_value: cds_full_html
         summary: summary
   localgov_directory_channels: field_directory
   localgov_directory_facets_select:

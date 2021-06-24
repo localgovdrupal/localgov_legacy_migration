@@ -6,6 +6,8 @@ dependencies:
 id: directory_channel
 migration_group: localgov_directories
 label: 'Directory - channel'
+migration_tags:
+  - localgov_content_type
 source:
   plugin: d8_entity_path
   key: migration
@@ -34,7 +36,7 @@ process:
       value: value
       format:
         plugin: default_value
-        default_value: wysiwyg
+        default_value: cds_full_html
   localgov_directory_channel_types: 'constants/channel_types'
   localgov_directory_facets_enable:
     plugin: entity_ref_lookup

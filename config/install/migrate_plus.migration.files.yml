@@ -11,7 +11,7 @@ source:
   #scheme: public
   constants:
     # Specify this in the sites settings.local.php file as:
-    # $config['migrate_plus.migration.file']['source']['constants']['source_base_path'] = 'https://example.com';
+    # $config['migrate_plus.migration.files']['source']['constants']['source_base_path'] = 'https://example.com';
     source_base_path: ''
   track_changes: true
 process:
@@ -23,23 +23,28 @@ process:
   changed: changed
   uid: uid
   # Use the same URL as the source so that files can be rsynced as part of the migration.
-  uri: uri
+  #uri: uri
   # If we want to fetch files, rather than rsync them, use the following.
-  # source_full_path:
-  #   -
-  #     plugin: concat
-  #     delimiter: /
-  #     source:
-  #       - constants/source_base_path
-  #       - filepath
-  #   -
-  #     plugin: urlencode
-  #  uri:
-  #    -
-  #      plugin: file_copy
-  #      source:
-  #        - '@source_full_path'
-  #        - uri
+  filepath:
+    plugin: str_replace
+    source: uri
+    search: 'public://'
+    replace: 'sites/default/files/'
+  source_full_path:
+    -
+      plugin: concat
+      delimiter: /
+      source:
+        - constants/source_base_path
+        - '@filepath'
+    -
+      plugin: urlencode
+  uri:
+    -
+      plugin: download
+      source:
+        - '@source_full_path'
+        - uri
 destination:
   plugin: 'entity:file'
 migration_dependencies:

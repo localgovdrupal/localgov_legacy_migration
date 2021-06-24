@@ -6,6 +6,8 @@ dependencies:
 id: paragraph_link_and_summary
 migration_group: localgov_paragraphs
 label: 'Paragraph - link and summary'
+migration_tags:
+  - localgov_paragraphs
 source:
   plugin: d8_entity
   key: migration
@@ -22,7 +24,7 @@ process:
       value: value
       format:
         plugin: default_value
-        default_value: wysiwyg
+        default_value: cds_full_html
   localgov_link: field_link
 destination:
   plugin: 'entity:paragraph'

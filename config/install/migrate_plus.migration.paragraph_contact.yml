@@ -3,6 +3,8 @@ status: true
 id: paragraph_contact
 migration_group: localgov_paragraphs
 label: 'Paragraph - Contact'
+migration_tags:
+  - localgov_paragraphs
 source:
   plugin: d8_entity
   key: migration

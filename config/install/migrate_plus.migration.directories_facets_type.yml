@@ -26,6 +26,7 @@ process:
   label: name
   langcode: langcode
   status: status
+  weight: weight
 destination:
   plugin: 'entity:localgov_directories_facets_type'
 migration_dependencies: {  }

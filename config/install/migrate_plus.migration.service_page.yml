@@ -6,6 +6,8 @@ dependencies:
 id: service_page
 migration_group: localgov_services
 label: 'Services - page'
+migration_tags:
+  - localgov_content_type
 source:
   plugin: d8_entity_path
   key: migration
@@ -31,7 +33,7 @@ process:
         format:
           -
             plugin: default_value
-            default_value: wysiwyg
+            default_value: cds_full_html
         summary: summary
   localgov_download_links: field_download_links
   localgov_hide_related_topics: field_hide_related_topics

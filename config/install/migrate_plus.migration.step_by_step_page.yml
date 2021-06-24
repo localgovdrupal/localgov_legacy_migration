@@ -6,6 +6,8 @@ dependencies:
 id: step_by_step_page
 migration_group: localgov_step_by_step
 label: 'Step by step - page'
+migration_tags:
+  - localgov_content_type
 source:
   plugin: d8_entity_path
   key: migration
@@ -31,7 +33,7 @@ process:
         format:
           -
             plugin: default_value
-            default_value: wysiwyg
+            default_value: cds_full_html
         summary: summary
   localgov_step_parent: field_guide_parent
   localgov_step_section_title: field_guide_section_title

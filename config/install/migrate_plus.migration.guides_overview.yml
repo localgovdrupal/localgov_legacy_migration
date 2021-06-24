@@ -6,6 +6,8 @@ dependencies:
 id: guides_overview
 migration_group: localgov_guides
 label: 'Guides - overview'
+migration_tags:
+  - localgov_content_type
 source:
   plugin: d8_entity_path
   key: migration
@@ -31,7 +33,7 @@ process:
         format:
           -
             plugin: default_value
-            default_value: wysiwyg
+            default_value: cds_full_html
         summary: summary
   localgov_guides_description: field_guide_description
   localgov_guides_pages: field_guide_pages

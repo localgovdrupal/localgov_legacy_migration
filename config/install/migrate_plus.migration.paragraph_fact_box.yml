@@ -6,6 +6,8 @@ dependencies:
 id: paragraph_fact_box
 migration_group: localgov_paragraphs
 label: 'Paragraph - fact box'
+migration_tags:
+  - localgov_paragraphs
 source:
   plugin: d8_entity
   key: migration

@@ -6,6 +6,8 @@ dependencies:
 id: service_status
 migration_group: localgov_services
 label: 'Service - status page'
+migration_tags:
+  - localgov_content_type
 source:
   plugin: d8_entity_path
   key: migration
@@ -31,7 +33,7 @@ process:
         format:
           -
             plugin: default_value
-            default_value: wysiwyg
+            default_value: cds_full_html
         summary: summary
   localgov_service_status: field_service_status
   localgov_services_parent: field_service

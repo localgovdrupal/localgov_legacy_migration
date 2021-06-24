@@ -6,6 +6,8 @@ dependencies:
 id: paragraph_quote
 migration_group: localgov_paragraphs
 label: 'Paragraph - call out box'
+migration_tags:
+  - localgov_paragraphs
 source:
   plugin: d8_entity
   key: migration
