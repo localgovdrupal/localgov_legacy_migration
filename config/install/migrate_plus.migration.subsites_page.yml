@@ -31,18 +31,18 @@ process:
   localgov_subsites_summary: 'body/summary'
   localgov_subsites_topic: field_topic_term
   # Workflow content moderation state.
-  moderation_state: moderation_state
+  # moderation_state: moderation_state
   # Alternative Workflow content moderation state.
   # Uncomment the following (and comment out the above) if the source site did
   # not have workflow / content moderation switched on for this content type
-  # moderation_state:
-  #   -
-  #     plugin: static_map
-  #     source: status
-  #     default_value: draft
-  #     map:
-  #       '0': draft
-  #       '1': published
+  moderation_state:
+    -
+      plugin: static_map
+      source: status
+      default_value: draft
+      map:
+        '0': draft
+        '1': published
 destination:
   plugin: 'entity:node'
   default_bundle: localgov_subsites_page
