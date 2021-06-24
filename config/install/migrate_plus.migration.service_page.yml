@@ -33,7 +33,7 @@ process:
         format:
           -
             plugin: default_value
-            default_value: cds_full_html
+            default_value: wysiwyg
         summary: summary
   localgov_download_links: field_download_links
   localgov_hide_related_topics: field_hide_related_topics

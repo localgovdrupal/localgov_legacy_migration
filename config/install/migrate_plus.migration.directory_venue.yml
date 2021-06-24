@@ -47,7 +47,7 @@ process:
       value: value
       format:
         plugin: default_value
-        default_value: cds_full_html
+        default_value: wysiwyg
       summary: summary
   localgov_directory_channels: field_directory
   localgov_directory_facets_select:
@@ -76,7 +76,7 @@ process:
       value: value
       format:
         plugin: default_value
-        default_value: cds_full_html
+        default_value: wysiwyg
   localgov_directory_opening_times:
     plugin: sub_process
     source: field_opening_times
@@ -84,7 +84,7 @@ process:
       value: value
       format:
         plugin: default_value
-        default_value: cds_full_html
+        default_value: wysiwyg
   localgov_location:
     plugin: migration_lookup
     migration: geo_address

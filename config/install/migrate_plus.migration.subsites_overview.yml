@@ -4,7 +4,7 @@ dependencies:
   module:
     - localgov_subsites
 id: subsites_overview
-migration_group: localgov_migration
+migration_group: localgov_subsites
 label: 'Subsites - overview'
 migration_tags:
   - localgov_content_type

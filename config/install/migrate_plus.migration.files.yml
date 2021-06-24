@@ -30,21 +30,22 @@ process:
     source: uri
     search: 'public://'
     replace: 'sites/default/files/'
-  source_full_path:
-    -
-      plugin: concat
-      delimiter: /
-      source:
-        - constants/source_base_path
-        - '@filepath'
-    -
-      plugin: urlencode
-  uri:
-    -
-      plugin: download
-      source:
-        - '@source_full_path'
-        - uri
+  uri: uri
+  # source_full_path:
+  #   -
+  #     plugin: concat
+  #     delimiter: /
+  #     source:
+  #       - constants/source_base_path
+  #       - '@filepath'
+  #   -
+  #     plugin: urlencode
+  # uri:
+  #   -
+  #     plugin: download
+  #     source:
+  #       - '@source_full_path'
+  #       - uri
 destination:
   plugin: 'entity:file'
 migration_dependencies:

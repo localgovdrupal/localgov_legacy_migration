@@ -24,7 +24,7 @@ process:
       value: value
       format:
         plugin: default_value
-        default_value: cds_full_html
+        default_value: wysiwyg
 destination:
   plugin: 'entity:paragraph'
   default_bundle: localgov_text

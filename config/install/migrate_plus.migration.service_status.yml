@@ -33,7 +33,7 @@ process:
         format:
           -
             plugin: default_value
-            default_value: cds_full_html
+            default_value: wysiwyg
         summary: summary
   localgov_service_status: field_service_status
   localgov_services_parent: field_service
