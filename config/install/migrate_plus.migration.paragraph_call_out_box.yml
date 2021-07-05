@@ -29,7 +29,18 @@ process:
       format:
         plugin: default_value
         default_value: wysiwyg
-  localgov_button: field_button
+  localgov_button:
+    -
+      plugin: sub_process
+      source: field_button
+      process:
+        uri: uri
+        title: title
+        options:
+          -
+            plugin: callback
+            source: options
+            callable: unserialize
   localgov_header_text: field_header_text
 destination:
   plugin: 'entity:paragraph'

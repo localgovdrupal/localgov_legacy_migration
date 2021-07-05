@@ -18,7 +18,18 @@ process:
   revision_id: revision_id
   langcode: langcode
   topic_list_header: field_header_text
-  topic_list_links: field_links
+  topic_list_links:
+    -
+      plugin: sub_process
+      source: field_links
+      process:
+        uri: uri
+        title: title
+        options:
+          -
+            plugin: callback
+            source: options
+            callable: unserialize
   topic_list_term: field_topic_term
 destination:
   plugin: 'entity:paragraph'
