@@ -40,7 +40,18 @@ process:
   localgov_page_components: field_page_components
   localgov_services_parent: field_parent_content
   localgov_override_related_links: field_override_related_links
-  localgov_common_tasks: field_common_tasks
+  localgov_common_tasks:
+      -
+        plugin: sub_process
+        source: field_common_tasks
+        process:
+          uri: uri
+          title: title
+          options:
+            -
+              plugin: callback
+              source: options
+              callable: unserialize
   localgov_topic_classified: field_all_topics
   localgovrelated_links: field_related_links
   # Disable pathauto for alias migration.

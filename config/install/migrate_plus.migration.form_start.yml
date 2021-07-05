@@ -54,7 +54,7 @@ process:
           -
             plugin: callback
             source: options
-            callable: _bhcc_form_start_migrate_callback_unserialize_options
+            callable: unserialize
   # Disable pathauto for alias migration.
   'path/pathauto':
     plugin: default_value
