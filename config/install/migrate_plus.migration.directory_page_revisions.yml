@@ -1,0 +1,70 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - localgov_directories_page
+id: directory_page_revisions
+migration_group: localgov_migration
+label: 'Directory - page (revisions)'
+source:
+  plugin: d8_entity_revisions
+  entity_type: node
+  bundle: directory_item
+  include_translations: false
+process:
+  # Skip if geofield is set as this should be a localgov_directories_venue.
+  location:
+    plugin: skip_on_not_empty
+    method: row
+    source: field_geofield
+  nid: nid
+  vid: vid
+  uid: uid
+  status: status
+  created: created
+  changed: changed
+  comment: comment
+  title: title
+  body:
+    -
+      plugin: sub_process
+      source: body
+      process:
+        value: value
+        format:
+          -
+            plugin: default_value
+            default_value: wysiwyg
+        summary: summary
+  localgov_directory_channels: field_directory
+  localgov_directory_facets_select:
+    plugin: entity_ref_lookup
+    migration: directories_facets
+    source: field_facet_options
+  localgov_directory_address:
+    plugin: sub_process
+    source: field_addressfield
+    process:
+      country_code:
+        plugin: default_value
+        default_value: GB
+      address_line1: street
+      locality: city
+      postal_code: postcode
+  localgov_directory_email: field_email_address
+  localgov_directory_phone: field_phone
+  localgov_directory_website:
+    plugin: fix_url
+    source: field_website_plain
+  revision_uid: revision_uid
+  revision_log: revision_log
+  revision_timestamp: revision_timestamp
+destination:
+  plugin: 'entity_revision:node'
+  default_bundle: localgov_directories_page
+migration_dependencies:
+  required:
+    - directories_facets
+    - directory_channel
+  optional:
+    - users

@@ -1,0 +1,48 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - localgov_step_by_step
+id: step_by_step_page_revisions
+migration_group: localgov_migration
+label: 'Step by step - page (revisions)'
+source:
+  plugin: d8_entity_revisions
+  entity_type: node
+  bundle: step_by_step_page
+  include_translations: false
+process:
+  nid: nid
+  vid: vid
+  uid: uid
+  status: status
+  created: created
+  changed: changed
+  comment: comment
+  title: title
+  body:
+    -
+      plugin: sub_process
+      source: body
+      process:
+        value: value
+        format:
+          -
+            plugin: default_value
+            default_value: wysiwyg
+        summary: summary
+  localgov_step_parent: field_guide_parent
+  localgov_step_section_title: field_guide_section_title
+  localgov_step_summary: field_step_summary
+  revision_uid: revision_uid
+  revision_log: revision_log
+  revision_timestamp: revision_timestamp
+destination:
+  plugin: 'entity_revision:node'
+  default_bundle: localgov_step_by_step_page
+migration_dependencies:
+  optional:
+    - users
+    - service_landing
+    - service_sublanding
+    - step_by_step_page

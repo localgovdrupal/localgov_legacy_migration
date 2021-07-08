@@ -1,0 +1,45 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - localgov_services_status
+id: service_status_revisions
+migration_group: localgov_migration
+label: 'Service - status page (revisions)'
+source:
+  plugin: d8_entity_revisions
+  entity_type: node
+  bundle: service_update_page
+  include_translations: false
+process:
+  nid: nid
+  vid: vid
+  uid: uid
+  status: status
+  created: created
+  changed: changed
+  comment: comment
+  title: title
+  body:
+    -
+      plugin: sub_process
+      source: body
+      process:
+        value: value
+        format:
+          -
+            plugin: default_value
+            default_value: wysiwyg
+        summary: summary
+  field_service_status: field_service_status
+  localgov_services_parent: field_service
+  revision_uid: revision_uid
+  revision_log: revision_log
+  revision_timestamp: revision_timestamp
+destination:
+  plugin: 'entity_revision:node'
+  default_bundle: localgov_services_status
+migration_dependencies:
+  optional:
+    - users
+    - service_landing

@@ -1,0 +1,53 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - localgov_guides
+id: guides_overview_revisions
+migration_group: localgov_migration
+label: 'Guides - overview (revisions)'
+source:
+  plugin: d8_entity_revisions
+  entity_type: node
+  bundle: guide_overview
+  include_translations: false
+process:
+  nid: nid
+  vid: vid
+  uid: uid
+  status: status
+  created: created
+  changed: changed
+  comment: comment
+  title: title
+  body:
+    -
+      plugin: sub_process
+      source: body
+      process:
+        value: value
+        format:
+          -
+            plugin: default_value
+            default_value: wysiwyg
+        summary: summary
+  localgov_guides_description: field_guide_description
+  localgov_guides_pages: field_guide_pages
+  localgov_guides_section_title: field_guide_section_title
+  localgov_guides_list_format: field_list_format
+  localgov_services_parent:
+    plugin: null_coalesce
+    source:
+      - field_sub_hub
+      - field_service
+  revision_uid: revision_uid
+  revision_log: revision_log
+  revision_timestamp: revision_timestamp
+destination:
+  plugin: 'entity_revision:node'
+  default_bundle: localgov_guides_overview
+migration_dependencies:
+  optional:
+    - users
+    - service_landing
+    - service_sublanding

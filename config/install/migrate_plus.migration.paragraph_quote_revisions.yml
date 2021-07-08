@@ -1,0 +1,22 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - localgov_campaigns_paragraphs
+id: paragraph_quote_revisions
+migration_group: localgov_migration
+label: 'Paragraph - call out box (revisions)'
+source:
+  plugin: d8_entity_revisions
+  entity_type: paragraph
+  bundle: quote
+process:
+  id: id
+  revision_id: revision_id
+  langcode: langcode
+  localgov_author: field_author
+  localgov_text_plain: field_text_plain
+destination:
+  plugin: 'entity_revision:paragraph'
+  default_bundle: localgov_quote
+migration_dependencies: {  }
