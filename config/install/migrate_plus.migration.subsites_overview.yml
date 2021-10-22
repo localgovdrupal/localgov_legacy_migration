@@ -19,11 +19,35 @@ process:
   nid: nid
   uuid: uuid
   uid: uid
+  langcode: langcode
   status: status
   created: created
   changed: changed
   comment: comment
   title: title
+  bhcc_banner:
+    plugin: entity_ref_lookup
+    migration: media_image
+    source: field_banner
+  # localgov_subsites_banner:
+  #   -
+  #     plugin: entity_lookup
+  #     entity_type: paragraph
+  #     bundle: localgov_banner_secondary
+  #     source: "@banner_media"
+  #     value_key: localgov_image
+  #   -
+  #     plugin: callback
+  #     callable: _localgov_legacy_migration_callback_debug
+  localgov_subsites_theme:
+    -
+      plugin: static_map
+      source: field_select_colorway
+      default_value: 'bhcc_burgundy'
+      map:
+        'magenta': 'bhcc_burgundy'
+        'orange': 'bhcc_orange'
+        'green': 'bhcc_green'
   localgov_subsites_hide_menu: field_hide_sidebar
   localgov_subsites_content:
     plugin: layout_paragraphs
@@ -48,6 +72,7 @@ destination:
 migration_dependencies:
   required:
     - media_image
+    - subsites_overview_banners
   optional:
     - paragraph_box_link
     - paragraph_call_out_box
