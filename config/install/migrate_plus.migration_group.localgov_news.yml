@@ -1,0 +1,22 @@
+id: localgov_news
+
+label: 'LocalGov News'
+
+description: 'Targets News articles.'
+
+source_type: 'Drupal 8 site'
+
+shared_configuration:
+  dependencies:
+    enforced:
+      module:
+      - localgov_news
+      - localgov_legacy_migration
+  source:
+    key: migration
+
+dependencies:
+  enforced:
+    module:
+      - localgov_news
+      - localgov_legacy_migration

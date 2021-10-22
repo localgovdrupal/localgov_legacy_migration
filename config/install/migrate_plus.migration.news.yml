@@ -1,0 +1,72 @@
+langcode: en
+status: true
+dependencies:
+id: news
+migration_group: localgov_news
+label: 'News'
+migration_tags:
+  - localgov_content_type
+source:
+  plugin: d8_entity
+  key: migration
+  entity_type: node
+  bundle: news
+  include_translations: false
+  track_changes: true
+  constants:
+    newsroom_title: "News"
+process:
+  nid: nid
+  uuid: uuid
+  uid: uid
+  langcode: langcode
+  status: status
+  created: created
+  changed: changed
+  comment: comment
+  title: title
+  field_media_image:
+    plugin: entity_ref_lookup
+    migration: media_image
+    source: field_image
+  body:
+    -
+      plugin: sub_process
+      source: body
+      process:
+        value: value
+        format:
+          -
+            plugin: default_value
+            default_value: wysiwyg
+        summary: summary
+  localgov_news_categories: field_category
+  localgov_news_date: field_display_date
+  localgov_news_related: field_related_articles
+  localgov_newsroom:
+    -
+      plugin: entity_generate
+      source: constants/newsroom_title
+      entity_type: node
+      bundle: newsroom
+      value_key: title
+
+  # Workflow content moderation state.
+  # moderation_state: moderation_state
+  # Alternative Workflow content moderation state.
+  # Uncomment the following (and comment out the above) if the source site did
+  # not have workflow / content moderation switched on for this content type
+  moderation_state:
+    -
+      plugin: static_map
+      source: status
+      default_value: draft
+      map:
+        '0': draft
+        '1': published
+destination:
+  plugin: 'entity:node'
+  default_bundle: localgov_news_article
+migration_dependencies:
+  required:
+    - media_image
