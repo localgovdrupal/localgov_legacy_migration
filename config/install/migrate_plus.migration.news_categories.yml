@@ -1,0 +1,27 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - localgov_news
+id: news_categories
+migration_group: localgov_news
+label: 'News Categories'
+source:
+  plugin: d8_entity_path
+  key: migration
+  entity_type: taxonomy_term
+  bundle: news_category
+  track_changes: true
+process:
+  tid: tid
+  uuid: uuid
+  name: name
+  # Disable pathauto for alias migration.
+  'path/pathauto':
+    plugin: default_value
+    default_value: 0
+  'path/alias': alias
+destination:
+  plugin: 'entity:taxonomy_term'
+  default_bundle: news_category
+migration_dependencies: {  }

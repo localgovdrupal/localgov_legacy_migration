@@ -70,3 +70,4 @@ destination:
 migration_dependencies:
   required:
     - media_image
+    - news_categories
