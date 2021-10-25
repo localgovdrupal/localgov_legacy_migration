@@ -1,0 +1,124 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - localgov_events
+    - bhcc_events_plus
+id: event
+migration_group: localgov_events
+label: 'Events'
+migration_tags:
+  - localgov_content_type
+source:
+  plugin: d8_entity_path
+  key: migration
+  entity_type: node
+  bundle: event
+  include_translations: false
+  track_changes: true
+process:
+  nid: nid
+  uuid: uuid
+  uid: uid
+  status: status
+  created: created
+  changed: changed
+  comment: comment
+  title: title
+  body:
+    plugin: sub_process
+    source: body
+    process:
+      value: value
+      format:
+        plugin: default_value
+        default_value: wysiwyg
+      summary: summary
+  localgov_event_call_to_action:
+      -
+        plugin: sub_process
+        source: field_event_booking_link
+        process:
+          uri: uri
+          title: title
+          options:
+            -
+              plugin: callback
+              source: options
+              callable: unserialize
+  # localgov_event_categories:
+  localgov_event_date: field_event_event_date
+  localgov_event_image:
+    plugin: entity_ref_lookup
+    migration: media_image
+    source: field_event_event_image
+  localgov_event_location:
+    plugin: migration_lookup
+    migration: geo_address_event
+    source: nid
+  # localgov_event_locality:
+  # localgov_event_price:
+  localgov_event_provider: field_event_directory_entry
+  localgov_event_venue: field_event_directory_entry_star
+  localgov_directory_facets_select:
+    plugin: entity_ref_lookup
+    migration: directories_facets
+    source: field_facet_options
+  bhcc_accessibility:
+    plugin: sub_process
+    source: field_accessibility_text
+    process:
+      value: value
+      format:
+        plugin: default_value
+        default_value: wysiwyg
+      summary: summary
+  bhcc_booking_information:
+    plugin: sub_process
+    source: field_event_booking_information
+    process:
+      value: value
+      format:
+        plugin: default_value
+        default_value: wysiwyg
+      summary: summary
+  bhcc_cost: field_event_cost
+  bhcc_cost_details/value: field_event_cost_details
+  bhcc_cost_details/format: wysiwyg
+  bhcc_end_venue: field_event_directory_entry_end
+  bhcc_event_channel: field_event_channel
+  bhcc_location_details/value: field_event_location_details
+  bhcc_location_details/format: wysiwyg
+  bhcc_maximum_age: field_event_maximum_age
+  bhcc_minimum_age: field_event_minimum_age
+  bhcc_online_event: field_event_online_event
+  bhcc_event_no_date: field_event_no_date
+  # Disable pathauto for alias migration.
+  'path/pathauto':
+    plugin: default_value
+    default_value: 0
+  'path/alias': alias
+  # Workflow content moderation state.
+  # moderation_state: moderation_state
+  # Alternative Workflow content moderation state.
+  # Uncomment the following (and comment out the above) if the source site did
+  # not have workflow / content moderation switched on for this content type
+  moderation_state:
+    -
+      plugin: static_map
+      source: status
+      default_value: draft
+      map:
+        '0': draft
+        '1': published
+destination:
+  plugin: 'entity:node'
+  default_bundle: localgov_event
+migration_dependencies:
+  required:
+    - directories_facets
+    - event_channel
+    - geo_address_event
+    - media_image
+  optional:
+    - users

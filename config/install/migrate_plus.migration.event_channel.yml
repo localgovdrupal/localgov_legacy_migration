@@ -1,0 +1,71 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - bhcc_events_plus
+id: event_channel
+migration_group: localgov_events
+label: 'Event - channel'
+migration_tags:
+  - localgov_content_type
+source:
+  plugin: d8_entity_path
+  key: migration
+  entity_type: node
+  bundle: event_channel
+  include_translations: false
+  track_changes: true
+process:
+  nid: nid
+  uuid: uuid
+  uid: uid
+  status: status
+  created: created
+  changed: changed
+  comment: comment
+  title: title
+  body:
+    plugin: sub_process
+    source: field_description
+    process:
+      value: value
+      format:
+        plugin: default_value
+        default_value: wysiwyg
+  localgov_directory_facets_enable:
+    plugin: entity_ref_lookup
+    migration: directories_facets_type
+    source: field_directory_facets
+  localgov_services_parent:
+    -
+      plugin: callback
+      callable: _localgov_legacy_migration_callback_null_coalesce_target_id
+      source:
+        - field_sub_hub
+        - field_service
+  # Disable pathauto for alias migration.
+  'path/pathauto':
+    plugin: default_value
+    default_value: 0
+  'path/alias': alias
+  # Workflow content moderation state.
+  # moderation_state: moderation_state
+  # Alternative Workflow content moderation state.
+  # Uncomment the following (and comment out the above) if the source site did
+  # not have workflow / content moderation switched on for this content type
+  moderation_state:
+    -
+      plugin: static_map
+      source: status
+      default_value: draft
+      map:
+        '0': draft
+        '1': published
+destination:
+  plugin: 'entity:node'
+  default_bundle: event_channel
+migration_dependencies:
+  required:
+    - directories_facets_type
+  optional:
+    - users

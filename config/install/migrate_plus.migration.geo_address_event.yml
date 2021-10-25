@@ -1,0 +1,41 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - localgov_events
+    - bhcc_events_plus
+id: geo_address_event
+migration_group: localgov_events
+label: 'Geo - address'
+source:
+  plugin: d8_entity
+  key: migration
+  entity_type: node
+  bundle: event
+  track_changes: true
+process:
+  # Process directory entries with Geofield data into LocalGov Geo address entities.
+  location:
+    -
+      plugin: skip_row_if_not_set
+      index: 0
+      source: field_event_venue_location
+    -
+      plugin: geo_location_to_field
+  uid: uid
+  status:
+    - plugin: default_value
+      default_value: true
+  created: created
+  changed: changed
+  langcode: langcode
+  accessibility: field_accessibility
+  postal_address: field_event_venue_address
+destination:
+  plugin: 'entity:localgov_geo'
+  default_bundle: address
+migration_dependencies:
+  required:
+    - event_channel
+  optional:
+    - users
