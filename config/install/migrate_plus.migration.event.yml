@@ -83,11 +83,11 @@ process:
         default_value: wysiwyg
       summary: summary
   bhcc_cost: field_event_cost
-  bhcc_cost_details/value: field_event_cost_details
+  bhcc_cost_details/value: field_event_cost_details/value
   bhcc_cost_details/format: wysiwyg
   bhcc_end_venue: field_event_directory_entry_end
   bhcc_event_channel: field_event_channel
-  bhcc_location_details/value: field_event_location_details
+  bhcc_location_details/value: field_event_location_details/value
   bhcc_location_details/format: wysiwyg
   bhcc_maximum_age: field_event_maximum_age
   bhcc_minimum_age: field_event_minimum_age

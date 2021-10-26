@@ -20,8 +20,6 @@ process:
       plugin: skip_row_if_not_set
       index: 0
       source: field_event_venue_location
-    -
-      plugin: geo_location_to_field
   uid: uid
   status:
     - plugin: default_value
