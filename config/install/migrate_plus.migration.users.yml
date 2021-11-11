@@ -27,6 +27,15 @@ process:
   status: status
   timezone: timezone
   init: init
+  roles:
+    -
+      plugin: static_map
+      source: roles
+      bypass: true
+      map:
+        communications: localgov_editor
+        emergency_publisher: emergency_publisher
+        news_editor: localgov_news_editor
 destination:
   plugin: 'entity:user'
 migration_dependencies: {  }
