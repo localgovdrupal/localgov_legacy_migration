@@ -25,7 +25,18 @@ process:
       format:
         plugin: default_value
         default_value: wysiwyg
-  localgov_link: field_link
+  localgov_link:
+    -
+      plugin: sub_process
+      source: field_link
+      process:
+        uri: uri
+        title: title
+        options:
+          -
+            plugin: callback
+            source: options
+            callable: unserialize
 destination:
   plugin: 'entity:paragraph'
   default_bundle: localgov_link_and_summary

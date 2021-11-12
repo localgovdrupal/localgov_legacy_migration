@@ -18,7 +18,18 @@ process:
   revision_id: revision_id
   langcode: langcode
   localgov_title: field_title
-  localgov_url: field_url
+  localgov_url:
+    -
+      plugin: sub_process
+      source: field_url
+      process:
+        uri: uri
+        title: title
+        options:
+          -
+            plugin: callback
+            source: options
+            callable: unserialize
 destination:
   plugin: 'entity:paragraph'
   default_bundle: localgov_link
