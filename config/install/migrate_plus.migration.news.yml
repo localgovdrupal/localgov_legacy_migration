@@ -48,7 +48,8 @@ process:
       plugin: entity_generate
       source: constants/newsroom_title
       entity_type: node
-      bundle: newsroom
+      bundle: localgov_newsroom
+      bundle_key: type
       value_key: title
 
   # Workflow content moderation state.
