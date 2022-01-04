@@ -71,6 +71,14 @@ process:
               source: options
               callable: unserialize
   localgov_twitter: field_twitter
+  # Custom BHCC fields for portals.
+  bhcc_portal_enable_portal: field_portal_enable_portal
+  bhcc_portal_banner: field_portal_banner
+  bhcc_portal_colour_scheme: field_portal_colour_scheme
+  bhcc_portal_enable_sidebar: field_portal_enable_sidebar
+  bhcc_portal_menubar: field_portal_menubar
+  # bhcc_portal_tiles: field_portal_tiles
+  bhcc_show_body: field_show_body
   # Disable pathauto for alias migration.
   'path/pathauto':
     plugin: default_value
