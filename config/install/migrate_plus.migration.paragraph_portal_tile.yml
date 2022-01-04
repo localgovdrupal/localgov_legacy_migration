@@ -1,0 +1,44 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - localgov_services_landing
+id: paragraph_portal_tile
+migration_group: localgov_paragraphs
+label: 'Portal tile'
+migration_tags:
+  - localgov_paragraphs
+source:
+  plugin: d8_entity
+  key: migration
+  entity_type: paragraph
+  bundle: portal_tile
+process:
+  id: id
+  revision_id: revision_id
+  langcode: langcode
+  bhcc_portal_tile_description:
+    plugin: sub_process
+    source: field_portal_tile_description
+    process:
+      value: value
+      format:
+        plugin: default_value
+        default_value: wysiwyg
+  bhcc_portal_tile_link:
+    -
+      plugin: sub_process
+      source: field_portal_tile_link
+      process:
+        uri: uri
+        title: title
+        options:
+          -
+            plugin: callback
+            source: options
+            callable: unserialize
+  bhcc_portal_tile_image: field_portal_tile_image
+destination:
+  plugin: 'entity:paragraph'
+  default_bundle: portal_tile
+migration_dependencies: {  }

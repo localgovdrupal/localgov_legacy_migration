@@ -77,7 +77,7 @@ process:
   bhcc_portal_colour_scheme: field_portal_colour_scheme
   bhcc_portal_enable_sidebar: field_portal_enable_sidebar
   bhcc_portal_menubar: field_portal_menubar
-  # bhcc_portal_tiles: field_portal_tiles
+  bhcc_portal_tiles: field_portal_tiles
   bhcc_show_body: field_show_body
   # Disable pathauto for alias migration.
   'path/pathauto':
@@ -103,3 +103,4 @@ destination:
 migration_dependencies:
   optional:
     - users
+    - paragraph_portal_tile
