@@ -18,7 +18,11 @@ process:
   redirect_source/query: redirect_source__query
   redirect_redirect/uri: redirect_redirect__uri
   redirect_redirect/title: redirect_redirect__title
-  redirect_redirect/options: redirect_redirect__options
+  redirect_redirect/options:
+    -
+      plugin: callback
+      source: redirect_redirect__options
+      callable: unserialize
   status_code: status_code
   type: type
   uid: uid
