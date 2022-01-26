@@ -48,8 +48,12 @@ process:
         value: value
         format:
           -
-            plugin: default_value
+            plugin: static_map
+            source: format
             default_value: wysiwyg
+            map:
+              'wysiwyg': unrestricted
+              'editor': editor
         summary: summary
   localgov_directory_channels: field_directory
   localgov_directory_facets_select:
@@ -72,10 +76,11 @@ process:
     plugin: fix_url
     source: field_website_plain
   # Disable pathauto for alias migration.
-  'path/pathauto':
-    plugin: default_value
-    default_value: 0
-  'path/alias': alias
+  # 'path/pathauto':
+  #   plugin: default_value
+  #   default_value: 0
+  # 'path/alias': alias
+  path: path
   # Workflow content moderation state.
   # moderation_state: moderation_state
   # Alternative Workflow content moderation state.

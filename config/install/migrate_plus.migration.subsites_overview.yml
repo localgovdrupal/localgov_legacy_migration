@@ -53,6 +53,12 @@ process:
     plugin: layout_paragraphs
     source: field_page_builder_advanced
   localgov_subsites_summary: 'body/summary'
+  # Disable pathauto for alias migration.
+  # 'path/pathauto':
+  #   plugin: default_value
+  #   default_value: 0
+  # 'path/alias': alias
+  path: path
   # Workflow content moderation state.
   # moderation_state: moderation_state
   # Alternative Workflow content moderation state.

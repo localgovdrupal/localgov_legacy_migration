@@ -11,7 +11,7 @@ shared_configuration:
     enforced:
       module:
       - localgov_events
-      - bhcc_events_plus
+      # - bhcc_events_plus
       - localgov_legacy_migration
   source:
     key: migration
@@ -21,4 +21,4 @@ dependencies:
     module:
       - localgov_events
       - localgov_legacy_migration
-      - bhcc_events_plus
+      # - bhcc_events_plus

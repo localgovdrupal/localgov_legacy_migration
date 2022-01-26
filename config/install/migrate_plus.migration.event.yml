@@ -3,7 +3,7 @@ status: true
 dependencies:
   module:
     - localgov_events
-    - bhcc_events_plus
+    # - bhcc_events_plus
 id: event
 migration_group: localgov_events
 label: 'Events'
@@ -31,8 +31,12 @@ process:
     process:
       value: value
       format:
-        plugin: default_value
+        plugin: static_map
+        source: format
         default_value: wysiwyg
+        map:
+          'wysiwyg': unrestricted
+          'editor': editor
       summary: summary
   localgov_event_call_to_action:
       -
@@ -94,10 +98,11 @@ process:
   bhcc_online_event: field_event_online_event
   bhcc_event_no_date: field_event_no_date
   # Disable pathauto for alias migration.
-  'path/pathauto':
-    plugin: default_value
-    default_value: 0
-  'path/alias': alias
+  # 'path/pathauto':
+  #   plugin: default_value
+  #   default_value: 0
+  # 'path/alias': alias
+  path: path
   # Workflow content moderation state.
   # moderation_state: moderation_state
   # Alternative Workflow content moderation state.

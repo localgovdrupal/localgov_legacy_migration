@@ -1,8 +1,8 @@
 langcode: en
 status: true
 dependencies:
-  module:
-    - bhcc_events_plus
+  module: {  }
+    # - bhcc_events_plus
 id: event_channel
 migration_group: localgov_events
 label: 'Event - channel'
@@ -30,8 +30,12 @@ process:
     process:
       value: value
       format:
-        plugin: default_value
+        plugin: static_map
+        source: format
         default_value: wysiwyg
+        map:
+          'wysiwyg': unrestricted
+          'editor': editor
   localgov_directory_facets_enable:
     plugin: entity_ref_lookup
     migration: directories_facets_type
@@ -44,10 +48,11 @@ process:
         - field_sub_hub
         - field_service
   # Disable pathauto for alias migration.
-  'path/pathauto':
-    plugin: default_value
-    default_value: 0
-  'path/alias': alias
+  # 'path/pathauto':
+  #   plugin: default_value
+  #   default_value: 0
+  # 'path/alias': alias
+  path: path
   # Workflow content moderation state.
   # moderation_state: moderation_state
   # Alternative Workflow content moderation state.

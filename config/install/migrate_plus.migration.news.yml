@@ -37,8 +37,12 @@ process:
         value: value
         format:
           -
-            plugin: default_value
+            plugin: static_map
+            source: format
             default_value: wysiwyg
+            map:
+              'wysiwyg': unrestricted
+              'editor': editor
         summary: summary
   localgov_news_categories: field_category
   localgov_news_date: field_display_date

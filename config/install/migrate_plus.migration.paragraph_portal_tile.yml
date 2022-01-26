@@ -23,8 +23,12 @@ process:
     process:
       value: value
       format:
-        plugin: default_value
+        plugin: static_map
+        source: format
         default_value: wysiwyg
+        map:
+          'wysiwyg': unrestricted
+          'editor': editor
   bhcc_portal_tile_link:
     -
       plugin: sub_process
