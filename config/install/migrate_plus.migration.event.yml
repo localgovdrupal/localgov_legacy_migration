@@ -3,7 +3,7 @@ status: true
 dependencies:
   module:
     - localgov_events
-    # - bhcc_events_plus
+    - bhcc_events_plus
 id: event
 migration_group: localgov_events
 label: 'Events'
@@ -75,7 +75,7 @@ process:
       value: value
       format:
         plugin: default_value
-        default_value: wysiwyg
+        default_value: editor
       summary: summary
   bhcc_booking_information:
     plugin: sub_process
@@ -84,15 +84,27 @@ process:
       value: value
       format:
         plugin: default_value
-        default_value: wysiwyg
+        default_value: editor
       summary: summary
   bhcc_cost: field_event_cost
-  bhcc_cost_details/value: field_event_cost_details/value
-  bhcc_cost_details/format: wysiwyg
+  bhcc_cost_details:
+    plugin: sub_process
+    source: field_event_cost_details
+    process:
+      value: value
+      format:
+        plugin: default_value
+        default_value: editor
   bhcc_end_venue: field_event_directory_entry_end
   bhcc_event_channel: field_event_channel
-  bhcc_location_details/value: field_event_location_details/value
-  bhcc_location_details/format: wysiwyg
+  bhcc_location_details:
+    plugin: sub_process
+    source: field_event_location_details
+    process:
+      value: value
+      format:
+        plugin: default_value
+        default_value: editor
   bhcc_maximum_age: field_event_maximum_age
   bhcc_minimum_age: field_event_minimum_age
   bhcc_online_event: field_event_online_event

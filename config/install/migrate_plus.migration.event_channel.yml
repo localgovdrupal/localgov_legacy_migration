@@ -2,7 +2,7 @@ langcode: en
 status: true
 dependencies:
   module: {  }
-    # - bhcc_events_plus
+    - bhcc_events_plus
 id: event_channel
 migration_group: localgov_events
 label: 'Event - channel'

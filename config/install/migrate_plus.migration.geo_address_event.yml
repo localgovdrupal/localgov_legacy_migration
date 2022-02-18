@@ -3,7 +3,7 @@ status: true
 dependencies:
   module:
     - localgov_events
-    # - bhcc_events_plus
+    - bhcc_events_plus
 id: geo_address_event
 migration_group: localgov_events
 label: 'Geo - address'
