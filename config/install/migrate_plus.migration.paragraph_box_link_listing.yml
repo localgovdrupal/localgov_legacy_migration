@@ -1,0 +1,35 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - localgov_subsites_paragraphs
+id: paragraph_box_link_listing
+migration_group: localgov_paragraphs
+label: 'Paragraph - box link listing'
+migration_tags:
+  - localgov_paragraphs
+source:
+  plugin: d8_entity
+  key: migration
+  entity_type: paragraph
+  bundle: box_link_page_builder_
+process:
+  id: id
+  revision_id: revision_id
+  langcode: langcode
+  localgov_heading_level: 
+    -
+      plugin: default_value
+      default_value: 'h2'
+  localgov_title: field_box_link_title
+  localgov_box_listing_theme: 
+    -
+        plugin: default_value
+        default_value: 'grid'
+  localgov_paragraphs: field_box_links
+destination:
+  plugin: 'entity:paragraph'
+  default_bundle: localgov_box_links_listing
+migration_dependencies:
+  optional:
+    - paragraph_box_link
