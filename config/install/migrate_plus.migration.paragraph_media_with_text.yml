@@ -1,0 +1,51 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - localgov_subsites_paragraphs
+id: paragraph_media_with_text
+migration_group: localgov_paragraphs
+label: 'Paragraph - Media and text'
+migration_tags:
+  - localgov_paragraphs
+source:
+  plugin: d8_entity
+  key: migration
+  entity_type: paragraph
+  bundle: text_and_image_50_50_
+process:
+  id: id
+  revision_id: revision_id
+  langcode: langcode
+  localgov_text:
+    plugin: sub_process
+    source: field_text
+    process:
+      value: value
+      format:
+        plugin: static_map
+        source: format
+        default_value: wysiwyg
+        map:
+          'wysiwyg': unrestricted
+          'editor': editor
+  localgov_media_item:
+    plugin: entity_ref_lookup
+    migration: media_image
+    source: field_image
+  localgov_media_position:
+    plugin: static_map
+    source: field_text_image_layout
+    default_value: right
+    map:
+      'text-image': right
+      'image-text': left
+  localgov_media_with_text:
+    plugin: default_value
+    default_value: 'default'
+destination:
+  plugin: 'entity:paragraph'
+  default_bundle: localgov_media_with_text
+migration_dependencies:
+  required:
+    - media_image
