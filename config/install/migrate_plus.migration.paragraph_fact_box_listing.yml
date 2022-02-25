@@ -1,0 +1,27 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - localgov_subsites_paragraphs
+id: paragraph_fact_box_listing
+migration_group: localgov_paragraphs
+label: 'Paragraph - fact box listing'
+migration_tags:
+  - localgov_paragraphs
+source:
+  plugin: d8_entity
+  key: migration
+  entity_type: paragraph
+  bundle: fact_boxes_page_builder_
+process:
+  id: id
+  revision_id: revision_id
+  langcode: langcode
+  localgov_paragraphs: field_fact_boxes
+  bhcc_stack_fact_boxes: field_stack_fact_boxes
+destination:
+  plugin: 'entity:paragraph'
+  default_bundle: bhcc_fact_box_listing
+migration_dependencies:
+  optional:
+    - paragraph_fact_box

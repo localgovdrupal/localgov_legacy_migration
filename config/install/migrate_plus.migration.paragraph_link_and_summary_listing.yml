@@ -1,0 +1,26 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - localgov_subsites_paragraphs
+id: paragraph_link_and_summary_listing
+migration_group: localgov_paragraphs
+label: 'Paragraph - link and summary listing'
+migration_tags:
+  - localgov_paragraphs
+source:
+  plugin: d8_entity
+  key: migration
+  entity_type: paragraph
+  bundle: link_and_summary_page_builder_
+process:
+  id: id
+  revision_id: revision_id
+  langcode: langcode
+  localgov_paragraphs: field_link_with_summary
+destination:
+  plugin: 'entity:paragraph'
+  default_bundle: bhcc_link_and_summary_listing
+migration_dependencies:
+  optional:
+    - paragraph_link_and_summary
