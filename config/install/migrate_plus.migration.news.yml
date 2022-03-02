@@ -14,7 +14,7 @@ source:
   include_translations: false
   track_changes: true
   constants:
-    newsroom_title: "News"
+    newsroom_title: "Newsroom"
 process:
   nid: nid
   uuid: uuid
@@ -49,13 +49,14 @@ process:
   localgov_news_related: field_related_articles
   localgov_newsroom:
     -
-      plugin: entity_generate
+      plugin: entity_lookup
       source: constants/newsroom_title
       entity_type: node
       bundle: localgov_newsroom
       bundle_key: type
       value_key: title
 
+  path: path
   # Workflow content moderation state.
   # moderation_state: moderation_state
   # Alternative Workflow content moderation state.
@@ -76,3 +77,4 @@ migration_dependencies:
   required:
     - media_image
     - news_categories
+    - newsroom

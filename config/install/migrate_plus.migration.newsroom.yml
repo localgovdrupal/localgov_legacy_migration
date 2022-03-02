@@ -1,0 +1,83 @@
+langcode: en
+status: true
+dependencies:
+id: newsroom
+migration_group: localgov_news
+label: 'News rooms'
+migration_tags:
+  - localgov_content_type
+source:
+  plugin: d8_entity
+  key: migration
+  entity_type: node
+  bundle: newsroom_page
+  include_translations: false
+  track_changes: true
+  constants:
+    email_link_uri: internal:/node/33316
+    email_link_title: "Sign up now"
+    email_title: "Email newsletter"
+    email_summary: "Want news from us straight to your inbox?"
+    featured_link_title: "Looking for things to do?"
+    featured_link_link_uri: https://www.visitbrighton.com/
+    featured_link_link_title: "Go to Visit Brighton"
+    social:
+      0:
+        title: "Facebook"
+        uri: https://www.facebook.com/BrightonandHoveCityCouncil
+      1:
+        title: "Twitter"
+        uri: https://twitter.com/BrightonHoveCC
+      2:
+        title: "Youtube"
+        uri: https://www.youtube.com/user/BrightonandHoveGovUk
+      3:
+        title: "LinkedIn"
+        uri: https://www.linkedin.com/company/brighton-&-hove-city-council
+process:
+  nid: nid
+  uuid: uuid
+  uid: uid
+  langcode: langcode
+  status: status
+  created: created
+  changed: changed
+  comment: comment
+  title: title
+  bhcc_email_link/uri: constants/email_link_uri
+  bhcc_email_link/title: constants/email_link_title
+  bhcc_email_summary: constants/email_summary
+  bhcc_email_title: constants/email_title
+  bhcc_localgov_news_event_date: field_event_date
+  bhcc_localgov_news_event_image: field_event_image
+  bhcc_localgov_news_event_link: field_event_link
+  bhcc_localgov_news_event_locatio: field_event_location
+  bhcc_localgov_news_event_summary: field_event_summary
+  bhcc_localgov_news_event_time: field_event_time
+  bhcc_localgov_news_event_title: field_event_title
+  # bhcc_localgov_news_featured: field_newsroom
+  # bhcc_localgov_featured_link_imag: 
+  bhcc_localgov_featured_link_link/uri: constants/featured_link_link_uri
+  bhcc_localgov_featured_link_link/title: constants/featured_link_link_title
+  bhcc_localgov_featured_link_titl: constants/featured_link_title
+  bhcc_localgov_news_social_media: constants/social
+  bhcc_localgov_news_useful_links: field_useful_links
+
+  path: path
+  # Workflow content moderation state.
+  # moderation_state: moderation_state
+  # Alternative Workflow content moderation state.
+  # Uncomment the following (and comment out the above) if the source site did
+  # not have workflow / content moderation switched on for this content type
+  moderation_state:
+    -
+      plugin: static_map
+      source: status
+      default_value: draft
+      map:
+        '0': draft
+        '1': published
+destination:
+  plugin: 'entity:node'
+  default_bundle: localgov_newsroom
+migration_dependencies: {  }
