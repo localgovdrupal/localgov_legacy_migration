@@ -1,0 +1,28 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - localgov_news
+    - bhcc_localgov_news
+id: paragraph_newsroom_teasers
+migration_group: localgov_news
+label: 'Paragraph - Newsroom teasers'
+migration_tags:
+  - localgov_paragraphs
+source:
+  plugin: d8_entity
+  key: migration
+  entity_type: paragraph
+  bundle: newsroom_teasers
+process:
+  id: id
+  revision_id: revision_id
+  langcode: langcode
+  bhcc_image: field_image
+  bhcc_link: field_link
+  bhcc_summary: field_summary
+  bhcc_title: field_title
+destination:
+  plugin: 'entity:paragraph'
+  default_bundle: newsroom_teasers
+migration_dependencies: {  }

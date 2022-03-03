@@ -21,6 +21,8 @@ source:
     featured_link_title: "Looking for things to do?"
     featured_link_link_uri: https://www.visitbrighton.com/
     featured_link_link_title: "Go to Visit Brighton"
+    featured_link_image_url: public://migrated/news/visitbrighton.png
+    featured_link_image_alt: "Go Visit Brighton"
     social:
       0:
         title: "Facebook"
@@ -55,8 +57,14 @@ process:
   bhcc_localgov_news_event_summary: field_event_summary
   bhcc_localgov_news_event_time: field_event_time
   bhcc_localgov_news_event_title: field_event_title
-  # bhcc_localgov_news_featured: field_newsroom
-  # bhcc_localgov_featured_link_imag: 
+  bhcc_localgov_news_featured: field_newsroom
+  bhcc_localgov_featured_link_imag/target_id: 
+    -
+        plugin: entity_generate
+        source: constants/featured_link_image_url
+        entity_type: file
+        value_key: uri
+  bhcc_localgov_featured_link_imag/alt: constants/featured_link_image_alt
   bhcc_localgov_featured_link_link/uri: constants/featured_link_link_uri
   bhcc_localgov_featured_link_link/title: constants/featured_link_link_title
   bhcc_localgov_featured_link_titl: constants/featured_link_title
@@ -80,4 +88,6 @@ process:
 destination:
   plugin: 'entity:node'
   default_bundle: localgov_newsroom
-migration_dependencies: {  }
+migration_dependencies: 
+  optional:
+    - paragraph_newsroom_teasers
