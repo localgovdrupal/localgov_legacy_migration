@@ -1,0 +1,32 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - localgov_news
+id: newsroom_featured_link_media
+migration_group: localgov_migration
+label: 'Media - Newsroom featured link media'
+source:
+  plugin: d8_entity
+  key: migration
+  entity_type: node
+  bundle: newsroom_page
+  track_changes: true
+  constants:
+    featured_link_image_url: public://migrated/news/visitbrighton.png
+    featured_link_image_alt: "Go Visit Brighton"
+process:
+  uid: uid
+  uuid: uuid
+  name: name
+  field_media_image/target_id:
+    plugin: entity_generate
+    source: constants/featured_link_image_url
+    entity_type: file
+    value_key: uri
+  field_media_image/alt: constants/featured_link_image_alt
+
+destination:
+  plugin: 'entity:media'
+  default_bundle: image
+migration_dependencies: {  }

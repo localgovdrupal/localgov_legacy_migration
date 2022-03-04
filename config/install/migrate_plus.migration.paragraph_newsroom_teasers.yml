@@ -18,11 +18,16 @@ process:
   id: id
   revision_id: revision_id
   langcode: langcode
-  bhcc_image: field_image
+  bhcc_newsroom_teaser_media:
+    plugin: entity_ref_lookup
+    migration: media_image
+    source: field_image
   bhcc_link: field_link
   bhcc_summary: field_summary
   bhcc_title: field_title
 destination:
   plugin: 'entity:paragraph'
   default_bundle: newsroom_teasers
-migration_dependencies: {  }
+migration_dependencies: 
+  required:
+      - media_image
