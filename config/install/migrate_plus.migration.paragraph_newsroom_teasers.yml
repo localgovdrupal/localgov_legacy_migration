@@ -22,7 +22,18 @@ process:
     plugin: entity_ref_lookup
     migration: media_image
     source: field_image
-  bhcc_link: field_link
+  bhcc_link:
+    -
+      plugin: sub_process
+      source: field_link
+      process:
+        uri: uri
+        title: title
+        options:
+          -
+            plugin: callback
+            source: options
+            callable: unserialize
   bhcc_summary: field_summary
   bhcc_title: field_title
 destination:
