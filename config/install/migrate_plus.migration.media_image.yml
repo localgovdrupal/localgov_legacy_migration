@@ -51,6 +51,20 @@ process:
   created: created
   changed: changed
   field_media_image/0/target_id: '@id'
+  field_media_image/0/alt: 
+    plugin: find_alt_text
+    source: '@id'
+    field_tables:
+      - node__field_banner
+      - node__field_banner_image
+      - node__field_event_event_image
+      - node__field_event_image
+      - node__field_gettingonbetter_image
+      - node__field_image
+      - paragraph__field_background_image
+      - paragraph__field_image
+
+
 destination:
   plugin: 'entity:media'
   default_bundle: image
