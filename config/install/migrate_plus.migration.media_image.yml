@@ -63,6 +63,8 @@ process:
       - node__field_image
       - paragraph__field_background_image
       - paragraph__field_image
+    wysiwyg_field_tables:
+      - node__body
 
 
 destination:

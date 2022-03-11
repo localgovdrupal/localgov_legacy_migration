@@ -3,6 +3,7 @@
 namespace Drupal\localgov_legacy_migration\Plugin\migrate\process;
 
 use Drupal\Core\Database\Database;
+use Drupal\file\Entity\File;
 use Drupal\migrate\Plugin\MigrationInterface;
 use Drupal\migrate\MigrateExecutableInterface;
 use Drupal\migrate\ProcessPluginBase;
@@ -36,6 +37,7 @@ class FindAltText extends ProcessPluginBase {
     $configuration += [
       'field_tables' => [],
       'wysiwyg_field_tables' => [],
+      'wysiwyg_regex' => '/<img alt="(.*?)" .+ src=".*__PATH__"/m',
     ];
     parent::__construct($configuration, $plugin_id, $plugin_definition, $plugin);
   }
@@ -61,11 +63,48 @@ class FindAltText extends ProcessPluginBase {
       $result = $query->execute();
       $alt_text = $result->fetchField();
       if (!empty($alt_text)) {
-        break;
+
+        // Return first alt text found.
+        return $alt_text;
+      }
+    }
+
+    // Get the file path.
+    $file = File::load($value);
+    $file_url = $file->createFileUrl();
+    $file_url_escaped = preg_quote($file_url);
+    $file_url_escaped = str_replace('/', '\/', $file_url_escaped);
+
+    // Add a query for each wysiwyg table.
+    $wysiwyg_field_tables = $this->configuration['wysiwyg_field_tables'];
+    $wysiwyg_regex = $this->configuration['wysiwyg_regex'];
+    $wysiwyg_regex = str_replace('__PATH__', $file_url_escaped, $wysiwyg_regex);
+
+    foreach ($wysiwyg_field_tables as $table) {
+      $parts = explode('__', $table);
+      $entity = $parts[0];
+      $field = $parts[1];
+      $query = $connection->select($table);
+      $query->addField($table, $field . '_value');
+      $query->condition($field . '_value', '%' . $file_url . '%', 'LIKE');
+      $result = $query->execute();
+      $body_value = $result->fetchField();
+
+      if (!empty($body_value)) {
+
+        // Find the alt text using regex.
+        preg_match($wysiwyg_regex, $body_value, $matches);
+        // print_r($matches);
+
+        if (!empty($matches[1])) {
+
+          // Return first alt text found.
+          return $matches[1];
+        }
       }
     } 
     
-    return $alt_text ?? NULL;
+    return NULL;
   }
 
 
