@@ -77,6 +77,34 @@ process:
       - paragraph__field_snippet_body
       - paragraph__field_text
       # - node_revision__body
+  field_media_image/0/title: 
+    plugin: find_alt_text
+    source: '@id'
+    tag: title
+    field_tables:
+      - node__field_banner
+      - node__field_banner_image
+      - node__field_event_event_image
+      - node__field_event_image
+      - node__field_gettingonbetter_image
+      - node__field_image
+      - paragraph__field_background_image
+      - paragraph__field_image
+    wysiwyg_field_tables:
+      - node__body
+      - node__field_docform_form_info
+      - node__field_introduction
+      - node__field_intro_text
+      - node__field_other_text
+      - paragraph__field_answer
+      - paragraph__field_body_text
+      - paragraph__field_box_text
+      - paragraph__field_left_column_of_text
+      - paragraph__field_right_column_of_text
+      - paragraph__field_snippet_body
+      - paragraph__field_text
+      # - node_revision__body
+    wysiwyg_regex: '/<img .+title="(.*?)".+src=".*__PATH__"/m'
 
 destination:
   plugin: 'entity:media'

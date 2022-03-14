@@ -20,12 +20,14 @@ use Drupal\migrate\Row;
  * field_image_field:
  *   plugin: find_alt_text
  *   source: fid
+ *   tag: alt
  *   field_tables:
  *     - node__field_image
  *     - node__field_second_image
  *   wysiwyg_field_tables:
  *     - node__body
  *     - node__formatted_text
+ *   wysiwyg_regex: '/<img alt="(.*?)" .+ src=".*__PATH__"/m'
  * @endcode
  */
 class FindAltText extends ProcessPluginBase {
@@ -35,6 +37,7 @@ class FindAltText extends ProcessPluginBase {
    */
   public function __construct(array $configuration, $plugin_id, array $plugin_definition, MigrationInterface $plugin) {
     $configuration += [
+      'tag' => 'alt',
       'field_tables' => [],
       'wysiwyg_field_tables' => [],
       'wysiwyg_regex' => '/<img alt="(.*?)" .+ src=".*__PATH__"/m',
@@ -47,6 +50,12 @@ class FindAltText extends ProcessPluginBase {
    */
   public function transform($value, MigrateExecutableInterface $migrate_executable, Row $row, $destination_property) {
   
+    // Get the tag 
+    $tag = $this->configuration['tag'];
+    if ($tag != 'alt' && $tag != 'title') {
+      $tag = 'alt';
+    }
+
     // Get the source database.
     $source_db_key = \Drupal::config('migrate_plus.migration_group.localgov_migration')->get('shared_configuration')['source']['key'];
     $connection = Database::getConnection('default', $source_db_key);
@@ -58,7 +67,7 @@ class FindAltText extends ProcessPluginBase {
       $entity = $parts[0];
       $field = $parts[1];
       $query = $connection->select($table);
-      $query->addField($table, $field . '_alt');
+      $query->addField($table, $field . '_' . $tag);
       $query->condition($field . '_target_id', $value);
       $result = $query->execute();
       $alt_text = $result->fetchField();
