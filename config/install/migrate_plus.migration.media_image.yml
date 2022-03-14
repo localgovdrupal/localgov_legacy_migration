@@ -65,7 +65,18 @@ process:
       - paragraph__field_image
     wysiwyg_field_tables:
       - node__body
-
+      - node__field_docform_form_info
+      - node__field_introduction
+      - node__field_intro_text
+      - node__field_other_text
+      - paragraph__field_answer
+      - paragraph__field_body_text
+      - paragraph__field_box_text
+      - paragraph__field_left_column_of_text
+      - paragraph__field_right_column_of_text
+      - paragraph__field_snippet_body
+      - paragraph__field_text
+      # - node_revision__body
 
 destination:
   plugin: 'entity:media'

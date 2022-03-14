@@ -94,7 +94,6 @@ class FindAltText extends ProcessPluginBase {
 
         // Find the alt text using regex.
         preg_match($wysiwyg_regex, $body_value, $matches);
-        // print_r($matches);
 
         if (!empty($matches[1])) {
 
