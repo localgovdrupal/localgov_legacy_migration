@@ -5,9 +5,9 @@ id: users
 migration_group: localgov_migration
 label: 'User accounts'
 source:
-  plugin: d8_entity
+  plugin: d8_user
   key: migration
-  entity_type: user
+  # entity_type: user
   track_changes: true
 process:
   # Don't migrate user 0
