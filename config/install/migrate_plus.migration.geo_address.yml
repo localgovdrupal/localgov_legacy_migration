@@ -28,7 +28,19 @@ process:
   created: created
   changed: changed
   langcode: langcode
-  accessibility: field_accessibility
+  accessibility: 
+    plugin: sub_process
+    source: field_accessibility_text
+    process:
+      value: value
+      format:
+        plugin: static_map
+        source: format
+        default_value: editor
+        map:
+          'wysiwyg': unrestricted
+          'editor': editor
+      summary: summary
   postal_address:
     plugin: sub_process
     source: field_addressfield
@@ -39,6 +51,8 @@ process:
       address_line1: street
       locality: city
       postal_code: postcode
+  location/lat: field_addressfield/latitude
+  location/lon: field_addressfield/longitude
 destination:
   plugin: 'entity:localgov_geo'
   default_bundle: address
