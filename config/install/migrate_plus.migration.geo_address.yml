@@ -20,6 +20,8 @@ process:
       index: 0
       source: field_geofield
     -
+      plugin: fix_lat_lon_order
+    -
       plugin: geo_location_to_field
   uid: uid
   status:
@@ -51,8 +53,6 @@ process:
       address_line1: street
       locality: city
       postal_code: postcode
-  location/lat: field_addressfield/latitude
-  location/lon: field_addressfield/longitude
 destination:
   plugin: 'entity:localgov_geo'
   default_bundle: address
