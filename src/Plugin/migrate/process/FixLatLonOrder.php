@@ -4,7 +4,7 @@ namespace Drupal\localgov_legacy_migration\Plugin\migrate\process;
 
 use Drupal\migrate\MigrateExecutableInterface;
 use Drupal\migrate\Row;
-use Drupal\geofield\Plugin\migrate\process\GeofieldLatLon;
+use Drupal\migrate\ProcessPluginBase;
 
 /**
  * Fix the order of Lat / Lon pairs.
@@ -13,7 +13,7 @@ use Drupal\geofield\Plugin\migrate\process\GeofieldLatLon;
  *   id = "fix_lat_lon_order"
  * )
  */
-class FixLatLonOrder extends GeofieldLatLon {
+class FixLatLonOrder extends ProcessPluginBase  {
 
   /**
    * {@inheritdoc}

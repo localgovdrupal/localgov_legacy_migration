@@ -18,7 +18,9 @@ process:
     -
       plugin: skip_row_if_not_set
       index: 0
-      source: field_geofield
+      source: field_addressfield
+    -
+      plugin: legacy_address_to_lat_lon
     -
       plugin: fix_lat_lon_order
     -
