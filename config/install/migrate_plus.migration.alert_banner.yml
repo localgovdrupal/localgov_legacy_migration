@@ -1,0 +1,76 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - localgov_alert_banner
+id: alert_banner
+migration_group: localgov_alert_banners
+label: 'Alert Banners'
+source:
+  plugin: d8_entity
+  key: migration
+  entity_type: localgov_alert_banner
+  bundle: localgov_alert_banner
+  track_changes: true
+process:
+  id: id
+  uuid: uuid
+  langcode: langcode
+  status: status
+  title: title
+  display_title: display_title
+  remove_hide_link: remove_hide_link
+  created: created
+  changed: changed
+  token: token
+  link: 
+    plugin: sub_process
+    source: link
+    process:
+      uri: uri
+      title: title
+      options:
+        -
+          plugin: callback
+          source: options
+          callable: unserialize
+  short_description: 
+    plugin: sub_process
+    source: short_description
+    process:
+      value: value
+      format:
+        plugin: static_map
+        source: format
+        default_value: wysiwyg
+        map:
+          'wysiwyg': unrestricted
+          'editor': editor
+  type_of_alert: type_of_alert
+  visibility: 
+    plugin: sub_process
+    source: visibility
+    process:
+      conditions:
+        -
+          plugin: callback
+          source: conditions
+          callable: unserialize
+  # Disable pathauto for alias migration.
+  # 'path/pathauto':
+  #   plugin: default_value
+  #   default_value: 0
+  # 'path/alias': alias
+  path: path
+  moderation_state:
+    -
+      plugin: static_map
+      source: status
+      default_value: draft
+      map:
+        '0': draft
+        '1': published
+destination:
+  plugin: 'entity:localgov_alert_banner'
+  default_bundle: localgov_alert_banner
+migration_dependencies: {  }

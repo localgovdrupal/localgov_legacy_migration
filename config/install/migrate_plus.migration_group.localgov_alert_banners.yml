@@ -1,0 +1,22 @@
+id: localgov_alert_banners
+
+label: 'LocalGov Alert Banners'
+
+description: 'Move the existing alert banners'
+
+source_type: 'Drupal 8 site'
+
+shared_configuration:
+  dependencies:
+    enforced:
+      module:
+      - localgov_alert_banner
+      - localgov_legacy_migration
+  source:
+    key: migration
+
+dependencies:
+  enforced:
+    module:
+      - localgov_alert_banner
+      - localgov_legacy_migration
