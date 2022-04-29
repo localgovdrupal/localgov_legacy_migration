@@ -13,6 +13,12 @@ source:
   bundle: localgov_alert_banner
   track_changes: true
 process:
+  # Skip the covid banner
+  skip_covid_banner:
+    plugin: skip_on_value
+    source: type_of_alert/0/value
+    value: 80--public-health
+    method: row
   id: id
   uuid: uuid
   langcode: langcode
