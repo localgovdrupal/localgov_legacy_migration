@@ -46,6 +46,13 @@ process:
     plugin: entity_ref_lookup
     migration: directories_facets_type
     source: field_directory_facets
+  localgov_services_parent:
+    -
+      plugin: callback
+      callable: _localgov_legacy_migration_callback_null_coalesce_target_id
+      source:
+        - field_sub_hub
+        - field_service
   # Disable pathauto for alias migration.
   # 'path/pathauto':
   #   plugin: default_value
