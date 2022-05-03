@@ -53,6 +53,7 @@ process:
       source:
         - field_sub_hub
         - field_service
+  bhcc_internal_directory: field_internal_directory
   # Disable pathauto for alias migration.
   # 'path/pathauto':
   #   plugin: default_value
