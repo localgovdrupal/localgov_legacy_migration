@@ -53,6 +53,14 @@ process:
     plugin: layout_paragraphs
     source: field_page_builder_advanced
   localgov_subsites_summary: 'body/summary'
+  # Embed subsite into a service.
+  localgov_services_parent:
+    -
+      plugin: callback
+      callable: _localgov_legacy_migration_callback_null_coalesce_target_id
+      source:
+        - field_sub_hub
+        - field_service
   # Disable pathauto for alias migration.
   # 'path/pathauto':
   #   plugin: default_value
