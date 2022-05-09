@@ -42,7 +42,7 @@ class LegacyAddressToLatLon extends ProcessPluginBase implements ContainerFactor
    * {@inheritdoc}
    */
   public function transform($value, MigrateExecutableInterface $migrate_executable, Row $row, $destination_property) {
-    if (isset($value['latitude']) and isset($value['longitude'])) {
+    if (!empty($value['latitude']) and !empty($value['longitude'])) {
       return [
         'lat' => $value['latitude'],
         'lng' => $value['longitude'],
