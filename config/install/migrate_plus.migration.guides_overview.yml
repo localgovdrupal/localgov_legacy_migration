@@ -44,7 +44,8 @@ process:
   localgov_guides_section_title: field_guide_section_title
   localgov_guides_list_format: field_list_format
   localgov_services_parent:
-    plugin: null_coalesce
+    plugin: callback
+    callable: _localgov_legacy_migration_callback_null_coalesce_target_id
     source:
       - field_sub_hub
       - field_service
